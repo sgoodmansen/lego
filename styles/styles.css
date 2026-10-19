@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Story+Script&display=swap');
+
+/* GLOBAL */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Roboto Flex",Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    background: #f5f5f5;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Story Script";
+}
+
+/* HEADER */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+.logo {
+    max-width: 200px;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #bf0f15;
+    transition: background 0.2s ease;
+    padding: 12px 16px;
+}
+
+nav a:hover {
+    background-color: #ffd700;
+}
+
+nav a:active {
+    color: #8c0b10;
+}
+
+/* HAMBURGER BUTTON */
+.menu-toggle {
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* MOBILE NAV */
+#main-nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+}
+
+#main-nav a {
+    padding: 12px;
+    border-top: 1px solid #ddd;
+}
+
+/* SHOW MENU WHEN ACTIVE */
+#main-nav.show {
+    display: flex;
+}
+
+
+/* HERO */
+#hero {
+    position: relative;;
+}
+
+.hero-img {
+    width: 100%;
+    display: block;
+    filter: brightness(80%);
+}
+
+.hero-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+    text-shadow: 2px 2px 8px black;
+
+    padding: 10px 20px;
+    border-radius: 6px;
+}
+
+/* FEATURES */
+main {
+    padding: 1rem;
+}
+
+.feature {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.feature img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+h2 {
+    color: #0058a0;
+}
+
+.feature-text {
+    padding: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #0058a0;
+}
+
+a:hover {
+    color: #8c0b10;
+}
+
+/* SEARCH SETS */
+.search {
+    display: flex;
+    max-width: 550px;
+    margin: 1.5rem auto;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+.search input {
+    flex: 1;
+    padding: 12px 16px;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-right: none;
+    border-radius: 8px 0 0 8px;
+    outline: none;
+}
+
+#search-btn {
+    padding: 12px 16px;
+    border: 2px solid #ddd;
+    border-left: none;
+    background: #ffcc00;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+#search-btn:hover {
+    background: #f4b400;
+}
+
+#clear-btn {
+    padding: 12px 16px;
+    border: 2px solid #ddd;
+    color: #fff;
+    background: #bf0f15;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+#clear-btn:hover {
+    background: #a20a0f;
+}
+
+
+/* LEGO-SETS CARD */
+#lego-sets {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.set-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+.set-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    padding: 10px;
+    background: #fff;
+}
+
+.set-info {
+    padding: 1rem;
+}
+
+.set-info h2 {
+    margin-top: 0;
+    font-size: 1.8rem;
+}
+
+.rating {
+    color: gold;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+}
+
+/* FOOTER */
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.footer_logo {
+    max-width: 100px;
+}
+
+.social img {
+    width: 30px;
+}
+
+/* TABLET */
+@media (min-width: 768px) {
+
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    nav {
+        flex-direction: row;
+    }
+
+    .hero-title {
+        font-size: 4rem;
+        padding: 15px 30px;
+    }
+
+    .feature {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    /* alternate layout */
+
+    .feature.reverse img {
+        order: 2;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    #main-nav {
+        display: flex;
+        flex-direction: row;
+        width: auto;
+        gap: 20px;
+    }
+
+    #main-nav a {
+        border: none;
+        font-size: 1.25rem;
+    }
+
+    #lego-sets {
+    grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+/* DESKTOP */
+@media (min-width: 1024px) {
+
+    .hero-title {
+        font-size: 5rem;
+    }
+
+    main {
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    #lego-sets {
+    grid-template-columns: repeat(3, 1fr);
+    }
+
+}
