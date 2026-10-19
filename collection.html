@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Manage your personal LEGO collection. Add sets, track your collection, and organize your LEGO inventory.">
+    <meta name="author" content="Spencer Goodmansen">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="My Collection | Brick Archive">
+    <meta property="og:description" content="Manage your personal LEGO collection. Add sets, track your collection, and organize your LEGO inventory.">
+    <meta property="og:url" content="https://sgoodmansen.github.io/wdd131/lego/index.html">
+    <meta property="og:image" content="images/social-preview.png">
+
+    <!-- X Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="My Collection | Brick Archive">
+    <meta name="twitter:description" content="Manage your personal LEGO collection. Add sets, track your collection, and organize your LEGO inventory.">
+    <meta name="twitter:image" content="images/social-preview.png">
+
+    <!-- Icons -->
+    <link rel="icon" href="images/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+    <title>My Collection | Brick Archive</title>
+
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+
+<main class="container">
+
+    <header>
+        <a href="index.html"><img src="images/brick_logo.png" alt="Brick Archive logo" class="logo"></a>
+
+        <button class="menu-toggle" id="menu-button">
+            ☰
+        </button>
+
+        <nav id="main-nav">
+            <a href="index.html">Home</a>
+            <a href="explore.html">LEGO Sets</a>
+            <a href="collection.html">My Collection</a>
+        </nav>
+    </header>
+
+<section class="collection">
+    <h1>My LEGO Collection</h1>
+
+    <p>
+        Keep track of your LEGO sets and manage
+        your personal collection.
+    </p>
+
+    <div class="collection-actions">
+        <a href="explore.html" class="button">
+            Browse LEGO Sets
+        </a>
+
+        <button type="button" id="add-set-btn">
+            Add a Set
+        </button>
+    </div>
+
+    <form id="add-set-form" hidden>
+        <h2>Add a LEGO set</h2>
+
+        <label for="set-number">Set Number</label>
+        <input 
+            type="text"
+            id="set-number"
+            name="setNumber"
+            required
+        >
+
+        <label for="set-name">Set Name</label>
+        <input 
+            type="text"
+            id="set-name"
+            name="setName"
+            required
+        >
+
+        <label for="set-theme">Theme</label>
+        <input 
+            type="text"
+            id="set-theme"
+            name="setTheme"
+            required
+        >
+
+        <label for="set-quantity">Quantity</label>
+        <input 
+            type="number" 
+            id="set-quantity"
+            min="1" 
+            value="1"
+            required
+        >
+
+        <button type="submit">Save Set</button>
+        <button type="button" id="cancel-set-btn">Cancel</button>
+    </form>
+
+    <h2>My Sets</h2>
+
+    <div id="collection-list">
+        <p>Your collection is currently empty.</p>
+    </div>
+</section>
+
+
+<footer>
+
+    <img src="images/brick_logo.png" alt="Brick Archive logo" class="footer_logo">
+
+    <p>&copy; 2026 The Brick Archive</p>
+
+    <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="explore.html">LEGO Sets</a>
+    </nav>
+
+    <div class="social">
+        <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
+        <a href="#"><img src="images/twitter.png" alt="Twitter"></a>
+        <a href="#"><img src="images/instagram.png" alt="Instagram"></a>
+    </div>
+
+</footer>
+
+</main>
+<script src="scripts/menu.js"></script>
+<script src="scripts/collection.js" type="module"></script>
+</body>
+</html>
