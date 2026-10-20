@@ -1,21 +1,8 @@
-const savedCollection = localStorage.getItem("legoCollection");
+import { getCollection, saveCollection } from "./collectionStorage.js";
 
-const myCollection = savedCollection
-    ? JSON.parse(savedCollection)
-    :[
-    {
-        setNumber: "75192",
-        name: "Millennium Falcon",
-        theme: "Star Wars",
-        quantity: 1
-    },
-    {
-        setNumber: "10307",
-        name: "Eiffel Tower",
-        theme: "Icons",
-        quantity: 1
-    }
-    ];
+// Retrieve the visitor's saved LEGO collection.
+// if no collection exists, start with an empty array
+const myCollection = getCollection();
 
 const collectionList = document.querySelector("#collection-list");
 
@@ -64,7 +51,7 @@ function displayCollection() {
                     }
                 }
 
-                localStorage.setItem("legoCollection", JSON.stringify(myCollection));
+                saveCollection(myCollection); // Save collection to localStorage
                 displayCollection();
             });
             
@@ -130,7 +117,7 @@ addSetForm.addEventListener("submit", function(event) {
     }
     
 
-    localStorage.setItem("legoCollection", JSON.stringify(myCollection));
+    saveCollection(myCollection); // Save collection to localStorage
 
     displayCollection();
     addSetForm.reset();

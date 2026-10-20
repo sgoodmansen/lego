@@ -1,3 +1,6 @@
+import { addToCollection } from "./collectionStorage.js";
+
+
 const legoSets = [
 {
     name: "Millennium Falcon",
@@ -339,8 +342,19 @@ function displaySets(sets) {
         `;
 
         legoContainer.appendChild(card);
-    })
+
+        const addButton = document.createElement("button");
+        addButton.type = "button";
+        addButton.textContent = "Add to Collection";
+        addButton.classList.add("add-to-collection-btn");
+        addButton.addEventListener("click", function() {
+            addToCollection(set);
+        });
+        card.appendChild(addButton);
+    });
 }
+
+
 
 function ratingTemplate(rating) {
     let html = `<span
