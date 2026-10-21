@@ -8,7 +8,7 @@ export default async function handler(request, context) {
             throw new Error("Rebrickable API key is missing.");
         }
 
-        // Read teh requested LEGO set number from the URL.
+        // Read the requested LEGO set number from the URL.
         const requestUrl = new URL(request.url);
         const setNumber = requestUrl.searchParams.get("set");
 
@@ -28,6 +28,14 @@ export default async function handler(request, context) {
                 Authorization: `key ${apiKey}`
             }
         });
+
+        //Check whether the requested LEGO set exists.
+        if (response.status === 404) {
+            return Response.json(
+                {error: "LEGO set not found"},
+                { status: 404}
+            );
+        }
 
         // Check whether Rebrickable returned a successful response.
         if (!response.ok) {
