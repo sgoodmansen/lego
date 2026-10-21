@@ -1,23 +1,20 @@
-// Test retrieving JSON data from an external API
-async function testFetch() {
+// Test retrieving LEGO set information through Netlify
+async function testLegoAPI() {
     try {
-        const response = await fetch("https://jsonplaceholder.typicode.com/todos/1");
-
-    console.log("HTTP Status:", response.status);
-    console.log("Response Object: ", response);
+        const response = await fetch(
+            ".netlify/functions/getLegoSet?set=42179-1"
+        );
 
     if (!response.ok) {
-        throw new Error(`HTTP error: ${response.status}`);
+        throw new Error(`API error: ${response.status}`);
     }
 
     const data = await response.json();
 
-    console.log("Retrieved data: ",data);
-
+    console.log("LEGO set information", data);
     } catch (error) {
-        console.error("Unable to retrieve data: ", error.message);
+        console.error("Unable to retrieve LEGO set:", error);
     }
 }
 
-testFetch();
-
+testLegoAPI();
