@@ -21,6 +21,13 @@ async function testLegoAPI() {
         <p>Year: ${data.year}</p>
         <p>Pieces: ${data.num_parts}</p>
     `;
+    
+    const setImage = document.createElement("img");
+
+    setImage.src = data.set_img_url;
+    setImage.alt = data.name;
+
+    resultsContainer.appendChild(setImage);
 
     } catch (error) {
         console.error("Unable to retrieve LEGO set:", error);
