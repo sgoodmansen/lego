@@ -8,8 +8,20 @@ export default async function handler(request, context) {
             throw new Error("Rebrickable API key is missing.");
         }
 
+        // Read teh requested LEGO set number from the URL.
+        const requestUrl = new URL(request.url);
+        const setNumber = requestUrl.searchParams.get("set");
+
+        // check whether a LEGO set number was provided.
+        if (!setNumber) {
+            return Response.json(
+                {error: "A LEGO set number is required."},
+                {status: 400}
+            );
+        }
+
         // Request the Millennium Falcon LEGO set.
-        const url = "https://rebrickable.com/api/v3/lego/sets/75192-1/";
+        const url = `https://rebrickable.com/api/v3/lego/sets/${encodeURIComponent(setNumber)}/`;
 
         const response = await fetch(url, {
             headers: {
