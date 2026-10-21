@@ -12,6 +12,16 @@ async function testLegoAPI() {
     const data = await response.json();
 
     console.log("LEGO set information", data);
+
+    const resultsContainer = document.querySelector("api-results");
+
+    resultsContainer.innerHTML = `
+        <h3>${data.name}</h3>
+        <p>Set Number: ${data.set_num}</p>
+        <p>Year: ${data.year}</p>
+        <p>Pieces: ${data.num_parts}</p>
+    `;
+    
     } catch (error) {
         console.error("Unable to retrieve LEGO set:", error);
     }
