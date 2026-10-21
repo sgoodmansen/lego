@@ -23,6 +23,8 @@ async function testLegoAPI() {
     `;
     
     const setImage = document.createElement("img");
+    resultsContainer.classList.add("api-set-card");
+    setImage.classList.add("api-set-image");
 
     setImage.src = data.set_img_url;
     setImage.alt = data.name;

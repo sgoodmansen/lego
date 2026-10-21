@@ -236,6 +236,22 @@ a:hover {
     margin-top: 0.5rem;
 }
 
+/* Styling for LEGO sets retrieved from Rebrickable */
+.api-set-card {
+    max-width: 350px;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.api-set-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: 1rem;
+}
+
 /* FOOTER */
 footer {
     display: flex;
