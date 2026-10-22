@@ -257,6 +257,24 @@ a:hover {
     margin-top: 1rem;
 }
 
+.api-error {
+    background-color: #fff0f0;
+    color: #8c0b10;
+    border-left: 4px solid #bf0f15;
+    border-radius: 6px;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.api-search-container {
+    max-width: 850px;
+    margin: 1.5rem auto;
+}
+
+#api-search-form {
+    max-width: 100%;
+}
+
 /* REBRICKABLE API SEARCH - MOBILE FIRST */
 #api-search-form {
     display: flex;

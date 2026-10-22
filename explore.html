@@ -67,18 +67,20 @@
     <section id="api-test">
         <h2>Search Rebrickable</h2>
 
-        <form id="api-search-form" class="search">
-            <label for="set-number">LEGO Set Number:</label>
-            <input 
-                type="text"
-                id="set-number"
-                placeholder="Example: 42179-1"
-                required
-            >
-            <button type="submit">Search</button>
-        </form>
-
-        <div id="api-results"></div>
+        <div class="api-search-container">
+            <form id="api-search-form" class="search">
+                <label for="set-number">LEGO Set Number:</label>
+                <input 
+                    type="text"
+                    id="set-number"
+                    placeholder="Example: 42179"
+                    required
+                >
+                <button type="submit">Search</button>
+            </form>
+        
+            <div id="api-results"></div>
+        </div>
     </section>
 
     <footer>

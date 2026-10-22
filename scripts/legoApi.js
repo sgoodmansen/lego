@@ -61,6 +61,7 @@ async function testLegoAPI(setNumber) {
         errorMessage.textContent = error.message;
 
         resultsContainer.appendChild(errorMessage);
+        errorMessage.classList.add("api-error");
     }
 
     finally {
@@ -73,7 +74,11 @@ async function testLegoAPI(setNumber) {
 searchForm.addEventListener("submit", function(event) {
     event.preventDefault();
 
-    const setNumber = setNumberInput.value.trim();
+    let setNumber = setNumberInput.value.trim();
+
+    if (!setNumber.includes("-")) {
+        setNumber += "-1";
+    }
 
     console.log("Searching for LEGO set: ", setNumber);
     testLegoAPI(setNumber);
