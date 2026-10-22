@@ -46,7 +46,7 @@ async function testLegoAPI(setNumber) {
         const resultsContainer = document.querySelector("#api-results");
 
         resultsContainer.classList.remove("api-set-card");
-        resultsContainer.replaceChild();
+        resultsContainer.replaceChildren();
 
         const errorMessage = document.createElement("p");
         errorMessage.textContent = error.message;
