@@ -2,6 +2,9 @@
 const searchForm = document.querySelector("#api-search-form");
 const setNumberInput = document.querySelector("#set-number");
 
+console.log("Search form:", searchForm);
+console.log("Set number input:", setNumberInput);
+
 
 // Test retrieving LEGO set information through Netlify
 async function testLegoAPI() {
