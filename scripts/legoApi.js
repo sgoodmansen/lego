@@ -1,3 +1,8 @@
+// retrieve the form and input elements from explore.html
+const searchForm = document.querySelector("#api-search-form");
+const setNumberInput = document.querySelector("#set-number");
+
+
 // Test retrieving LEGO set information through Netlify
 async function testLegoAPI() {
     try {
@@ -36,4 +41,10 @@ async function testLegoAPI() {
     }
 }
 
-testLegoAPI();
+searchForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const setNumber = setNumberInput.value.trim();
+
+    console.log("Searching for LEGO set: ", setNumber);
+});
