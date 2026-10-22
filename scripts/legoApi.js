@@ -9,8 +9,13 @@ async function testLegoAPI(setNumber) {
             `.netlify/functions/getLegoSet?set=${encodeURIComponent(setNumber)}`
         );
 
+    // Handle unsuccessful API requests
     if (!response.ok) {
-        throw new Error(`API error: ${response.status}`);
+        if (response.status === 404) {
+            throw new Error("LEGO set not found. Please check the set number.");
+        }
+
+        throw new Error("Unable to retrieve LEGO set information.");
     }
 
     const data = await response.json();
@@ -37,6 +42,16 @@ async function testLegoAPI(setNumber) {
 
     } catch (error) {
         console.error("Unable to retrieve LEGO set:", error);
+
+        const resultsContainer = document.querySelector("#api-results");
+
+        resultsContainer.classList.remove("api-set-card");
+        resultsContainer.replaceChild();
+
+        const errorMessage = document.createElement("p");
+        errorMessage.textContent = error.message;
+
+        resultsContainer.appendChild(errorMessage);
     }
 }
 
