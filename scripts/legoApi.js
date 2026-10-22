@@ -2,15 +2,11 @@
 const searchForm = document.querySelector("#api-search-form");
 const setNumberInput = document.querySelector("#set-number");
 
-console.log("Search form:", searchForm);
-console.log("Set number input:", setNumberInput);
-
-
 // Test retrieving LEGO set information through Netlify
-async function testLegoAPI() {
+async function testLegoAPI(setNumber) {
     try {
         const response = await fetch(
-            ".netlify/functions/getLegoSet?set=42179-1"
+            `.netlify/functions/getLegoSet?set=${encodeURIComponent(setNumber)}`
         );
 
     if (!response.ok) {
@@ -50,4 +46,5 @@ searchForm.addEventListener("submit", function(event) {
     const setNumber = setNumberInput.value.trim();
 
     console.log("Searching for LEGO set: ", setNumber);
+    testLegoAPI(setNumber);
 });
