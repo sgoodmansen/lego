@@ -3,7 +3,7 @@ const searchForm = document.querySelector("#api-search-form");
 const setNumberInput = document.querySelector("#set-number");
 
 // locate submit button inside search form
-const searchButton = searchForm.querySelector('button[type="submit]"');
+const searchButton = searchForm.querySelector('button[type="submit"]');
 
 // Test retrieving LEGO set information through Netlify
 async function testLegoAPI(setNumber) {
