@@ -37,7 +37,7 @@ async function testLegoAPI(setNumber) {
 
     resultsContainer.innerHTML = `
         <h3>${data.name}</h3>
-        <p>Set Number: ${data.set_num}</p>
+        <p>Set Number: ${data.set_num.split("-")[0]}</p>
         <p>Year: ${data.year}</p>
         <p>Pieces: ${data.num_parts}</p>
     `;
