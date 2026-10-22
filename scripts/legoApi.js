@@ -2,8 +2,19 @@
 const searchForm = document.querySelector("#api-search-form");
 const setNumberInput = document.querySelector("#set-number");
 
+// locate submit button inside search form
+const searchButton = searchForm.querySelector('button[type="submit]"');
+
 // Test retrieving LEGO set information through Netlify
 async function testLegoAPI(setNumber) {
+    const resultsContainer = document.querySelector("#api-results");
+
+    resultsContainer.classList.remove("api-set-card");
+    resultsContainer.textContent = "Searching for LEGO set...";
+
+    // Disable the search button while request is running
+    searchButton.disabled = true;
+
     try {
         const response = await fetch(
             `.netlify/functions/getLegoSet?set=${encodeURIComponent(setNumber)}`
@@ -43,8 +54,6 @@ async function testLegoAPI(setNumber) {
     } catch (error) {
         console.error("Unable to retrieve LEGO set:", error);
 
-        const resultsContainer = document.querySelector("#api-results");
-
         resultsContainer.classList.remove("api-set-card");
         resultsContainer.replaceChildren();
 
@@ -52,6 +61,12 @@ async function testLegoAPI(setNumber) {
         errorMessage.textContent = error.message;
 
         resultsContainer.appendChild(errorMessage);
+    }
+
+    finally {
+        // Enable search button
+        searchButton.disabled = false;
+        searchButton.textContent = "Search";
     }
 }
 
