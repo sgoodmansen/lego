@@ -90,8 +90,24 @@ async function searchLegoSets(searchTerm) {
         const data = await response.json();
         console.log("LEGO search results:", data);
 
-        resultsContainer.textContent = 
-            `Found ${data.count} matching LEGO sets.`;
+        resultsContainer.textContent = `Found ${data.count} matching LEGO sets.`;
+
+        const resultsList = document.createElement("ul");
+
+        data.results.forEach(function(legoSet) {
+            const listItem = document.createElement("li");
+            const setLink = document.createElement("a");
+
+            setLink.href = `set-details.html?set=${encodeURIComponent(legoSet.set_num)}`;
+
+            setLink.textContent = legoSet.name;
+
+            listItem.appendChild(setLink);
+            resultsList.appendChild(listItem);
+        });
+
+        resultsContainer.appendChild(resultsList);
+
     } catch (error) {
         console.error("LEGO search failed: ", error);
         resultsContainer.textContent = error.message;
