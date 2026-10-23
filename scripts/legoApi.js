@@ -17,7 +17,7 @@ async function testLegoAPI(setNumber) {
 
     try {
         const response = await fetch(
-            `.netlify/functions/getLegoSet?set=${encodeURIComponent(setNumber)}`
+            `/.netlify/functions/getLegoSet?set=${encodeURIComponent(setNumber)}`
         );
 
     // Handle unsuccessful API requests
@@ -32,8 +32,6 @@ async function testLegoAPI(setNumber) {
     const data = await response.json();
 
     console.log("LEGO set information", data);
-
-    const resultsContainer = document.querySelector("#api-results");
 
     resultsContainer.innerHTML = `
         <h3>${data.name}</h3>
@@ -71,15 +69,47 @@ async function testLegoAPI(setNumber) {
     }
 }
 
+async function searchLegoSets(searchTerm) {
+    const resultsContainer = document.querySelector("#api-results");
+
+    resultsContainer.classList.remove("api-set-card");
+    resultsContainer.textContent = "Searching for LEGO sets...";
+
+    searchButton.disabled = true;
+    searchButton.textContent = "Searching...";
+
+    try {
+        const response = await fetch(
+            `/.netlify/functions/searchLegoSets?search=${encodeURIComponent(searchTerm)}`
+        );
+
+        if (!response.ok) {
+            throw new Error("Unable to search LEGO sets.");
+        }
+
+        const data = await response.json();
+        console.log("LEGO search results:", data);
+
+        resultsContainer.textContent = 
+            `Found ${data.count} matching LEGO sets.`;
+    } catch (error) {
+        console.error("LEGO search failed: ", error);
+        resultsContainer.textContent = error.message;
+    } finally {
+        searchButton.disabled = false;
+        searchButton.textContent = "Search";
+    }
+}
+
 searchForm.addEventListener("submit", function(event) {
     event.preventDefault();
 
-    let setNumber = setNumberInput.value.trim();
+    const searchTerm = setNumberInput.value.trim();
 
-    if (!setNumber.includes("-")) {
-        setNumber += "-1";
+    if (!searchTerm) {
+        return;
     }
 
-    console.log("Searching for LEGO set: ", setNumber);
-    testLegoAPI(setNumber);
+    console.log("Searching for: ", searchTerm);
+    searchLegoSets(searchTerm);
 });
