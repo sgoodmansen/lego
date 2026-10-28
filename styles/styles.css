@@ -275,6 +275,27 @@ a:hover {
     max-width: 100%;
 }
 
+/* LEGO Set Details */
+.set-image {
+    display: block;
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    object-fit: contain;
+}
+
+#set-details {
+    padding: 2rem 1rem;
+}
+
+#set-details-container {
+    margin: 1.5rem 0;
+}
+
+#set-details-container p {
+    margin: 0.75rem 0;
+}
+
 /* REBRICKABLE API SEARCH - MOBILE FIRST */
 #api-search-form {
     display: flex;
