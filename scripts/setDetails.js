@@ -27,6 +27,19 @@ async function getSetDetails(setNumber) {
         const data = await response.json();
 
         console.log("LEGO set details:", data);
+
+        // Remove the loading message
+        detailsContainer.textContent = "";
+
+        // Create a heading for the LEGO set
+        const setName = document.createElement("h2");
+
+        // Add the set name returned by Rebrickable
+        setName.textContent = data.name;
+
+        // Insert the heading into the page
+        detailsContainer.appendChild(setName);
+
     } catch (error) {
         console.error("Error retrieving LEGO set: ", error);
 
