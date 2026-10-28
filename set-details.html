@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="View LEGO set details including release year, piece count, and images, and add sets to your Brick Archive collection.">
+    <meta name="author" content="Spencer Goodmansen">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="LEGO Set Details | Brick Archive">
+    <meta property="og:description" content="View LEGO set details including release year, piece count, and images, and add sets to your Brick Archive collection.">
+    <meta property="og:url" content="https://sgoodmansen.github.io/lego/index.html">
+    <meta property="og:image" content="images/social-preview.png">
+
+    <!-- X Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LEGO Set Details | Brick Archive">
+    <meta name="twitter:description" content="View LEGO set details including release year, piece count, and images, and add sets to your Brick Archive collection.">
+    <meta name="twitter:image" content="images/social-preview.png">
+
+    <!-- Icons -->
+    <link rel="icon" href="images/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+    <title>LEGO Set Details | Brick Archive</title>
+
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+
+<main class="container">
+
+    <header>
+        <a href="index.html"><img src="images/brick_logo.png" alt="Brick Archive logo" class="logo"></a>
+
+        <button class="menu-toggle" id="menu-button">
+            ☰
+        </button>
+
+        <nav id="main-nav">
+            <a href="index.html">Home</a>
+            <a href="explore.html">LEGO Sets</a>
+            <a href="collection.html">My Collection</a>
+        </nav>
+    </header>
+
+    <!-- LEGO Set Details -->
+     <section id="set-details">
+        <h1>LEGO Set Details</h1>
+
+        <div id="set-details-container">
+            <p>Loading LEGO set information...</p>
+        </div>
+
+        <a href="explore.html">Back to Explore</a>
+     </section>
+
+    <footer>
+
+    <img src="images/brick_logo.png" alt="Brick Archive logo" class="footer_logo">
+
+    <p>&copy; 2026 The Brick Archive</p>
+
+    <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="explore.html">LEGO Sets</a>
+    </nav>
+
+    <div class="social">
+        <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
+        <a href="#"><img src="images/twitter.png" alt="Twitter"></a>
+        <a href="#"><img src="images/instagram.png" alt="Instagram"></a>
+    </div>
+
+    </footer>
+
+</main>
+<script src="scripts/menu.js"></script>
+<script src="scripts/setDetails.js" type="module"></script>
+</body>
+</html>
