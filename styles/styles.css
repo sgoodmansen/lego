@@ -280,8 +280,10 @@ a:hover {
     display: block;
     width: 100%;
     max-width: 450px;
+    max-height: 500px;
     height: auto;
     object-fit: contain;
+    object-position: left center;
 }
 
 #set-details {
