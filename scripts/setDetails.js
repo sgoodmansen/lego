@@ -31,14 +31,31 @@ async function getSetDetails(setNumber) {
         // Remove the loading message
         detailsContainer.textContent = "";
 
-        // Create a heading for the LEGO set
-        const setName = document.createElement("h2");
+        // LEGO SET NAME
+        const setName = document.createElement("h2"); // Create a heading for the LEGO set    
+        setName.textContent = data.name; // Add the set name returned by Rebrickable
+        detailsContainer.appendChild(setName); // Insert the heading into the page
 
-        // Add the set name returned by Rebrickable
-        setName.textContent = data.name;
+        // LEGO SET IMAGE
+        const setImage = document.createElement("img"); // Create the LEGO set image
+        setImage.src = data.set_img_url; // Set the image source
+        setImage.alt = data.name; // Provide alternative text for accessibility
+        setImage.classList.add("set-image"); // Add a CSS class for styling 
+        detailsContainer.appendChild(setImage); // Insert the image into the page
 
-        // Insert the heading into the page
-        detailsContainer.appendChild(setName);
+        // LEGO SET NUMBER
+        const setNumberText = document.createElement("p");
+        setNumberText.textContent = `Set Number: ${data.set_num}`;
+        detailsContainer.appendChild(setNumberText);
+
+        // LEGO SET RELEASE YEAR
+        const setYear = document.createElement("p");
+        setYear.textContent = `Release Year: ${data.year}`;
+        detailsContainer.appendChild(setYear);
+
+        const setPieces = document.createElement("p");
+        setPieces.textContent = `Pieces: ${data.num_parts.toLocaleString()}`;
+        detailsContainer.appendChild(setPieces);
 
     } catch (error) {
         console.error("Error retrieving LEGO set: ", error);
