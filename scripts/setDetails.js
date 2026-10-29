@@ -65,6 +65,12 @@ async function getSetDetails(setNumber) {
         addButton.classList.add("add-collection-btn");
         detailsContainer.appendChild(addButton);
 
+        const saveMessage = document.createElement("p");
+        saveMessage.classList.add("save-message");
+        saveMessage.setAttribute("role", "status");
+        saveMessage.setAttribute("aria-live", "polite");
+        detailsContainer.appendChild(saveMessage);
+
         addButton.addEventListener("click", function() {
             const selectedSet = {
                 setNumber: data.set_num,
@@ -73,6 +79,7 @@ async function getSetDetails(setNumber) {
             };
 
             addToCollection(selectedSet);
+            saveMessage.textContent = `${data.name} added to your collection!`;
 
             console.log("Added to collection: ", selectedSet);
         })

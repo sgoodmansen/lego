@@ -298,6 +298,12 @@ a:hover {
     margin: 0.75rem 0;
 }
 
+.save-message {
+    color: #216e39;
+    font-weight: bold;
+    margin-top: .75rem;
+}
+
 /* REBRICKABLE API SEARCH - MOBILE FIRST */
 #api-search-form {
     display: flex;
