@@ -312,6 +312,24 @@ function searchSets() {
     displaySets(filteredSets);
 }
 
+async function loadLegoSets() {
+    try {
+        const response = await fetch(
+            "/.netlify/functions/searchLegoSets?search=castle"
+        );
+
+        if (!response.ok) {
+            throw new Error(`API error: ${response.status}`);
+        }
+
+        const data = await response.json();
+        
+        console.log("Explore API results: ", data.results);
+    } catch (error) {
+        console.error("Unable to load LEGO sets:", error);
+    }
+}
+
 function displaySets(sets) {
     legoContainer.innerHTML = "";
 
@@ -374,3 +392,4 @@ function ratingTemplate(rating) {
 }
 
 displaySets(legoSets);
+loadLegoSets();
