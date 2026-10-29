@@ -1,3 +1,5 @@
+import { addToCollection } from "./collectionStorage.js";
+
 // Retrieve the LEGO set number from the page URL
 const params = new URLSearchParams(window.location.search);
 
@@ -57,6 +59,15 @@ async function getSetDetails(setNumber) {
         setPieces.textContent = `Pieces: ${data.num_parts.toLocaleString()}`;
         detailsContainer.appendChild(setPieces);
 
+        // Create the Add to My Collection button
+        const addButton = document.createElement("button");
+        addButton.textContent = "Add to My Collection"
+        addButton.classList.add("add-collection-btn");
+        detailsContainer.appendChild(addButton);
+
+        addButton.addEventListener("click", function() {
+            console.log("Add to Collection clicked: ", data.set_num);
+        })
     } catch (error) {
         console.error("Error retrieving LEGO set: ", error);
 
