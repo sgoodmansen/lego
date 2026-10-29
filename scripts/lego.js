@@ -401,6 +401,11 @@ function displayApiSets(sets) {
         const card = document.createElement("article");
         card.classList.add("set-card");
 
+        const image = document.createElement("img");
+        image.src = set.image;
+        image.alt = set.name;
+        image.loading = "lazy";
+
         const name = document.createElement("h2");
         name.textContent = set.name;
 
@@ -410,6 +415,7 @@ function displayApiSets(sets) {
         const pieces = document.createElement("p");
         pieces.textContent = `Pieces: ${set.pieces.toLocaleString()}`;
 
+        card.appendChild(image);
         card.appendChild(name);
         card.appendChild(number);
         card.appendChild(pieces);
