@@ -424,6 +424,18 @@ function displayApiSets(sets) {
         card.appendChild(number);
         card.appendChild(pieces);
 
+        const addButton = document.createElement("button");
+
+        addButton.type="button";
+        addButton.textContent = "Add to Collection";
+        addButton.classList.add("add-to-collection-btn");
+
+        addButton.addEventListener("click", function() {
+            addToCollection(set);
+        });
+
+        card.appendChild(addButton);
+
         legoContainer.appendChild(card);
     });
 }
