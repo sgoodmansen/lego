@@ -325,6 +325,19 @@ async function loadLegoSets() {
         const data = await response.json();
         
         console.log("Explore API results: ", data.results);
+
+        const apiSets = data.results.map(function(set) {
+            return {
+                setNumber: set.set_num,
+                name: set.name,
+                year: set.year,
+                pieces: set.num_parts,
+                image: set.set_img_url,
+                theme: `Theme ID: ${set.theme_id}`
+            };
+        });
+
+        console.log("Converted LEGO sets: ", apiSets);
     } catch (error) {
         console.error("Unable to load LEGO sets:", error);
     }
