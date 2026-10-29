@@ -71,6 +71,14 @@ async function loadLegoSets(searchTerm) {
         console.log("Converted LEGO sets: ", apiSets);
     } catch (error) {
         console.error("Unable to load LEGO sets:", error);
+
+        legoContainer.replaceChildren();
+        const errorMessage = document.createElement("p");
+        errorMessage.textContent = "Unable to load LEGO sets. Please try again.";
+
+        errorMessage.setAttribute("role", "alert");
+
+        legoContainer.appendChild(errorMessage);
     }
 }
 
