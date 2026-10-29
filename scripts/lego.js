@@ -34,6 +34,14 @@ function searchSets() {
 }
 
 async function loadLegoSets(searchTerm) {
+    legoContainer.replaceChildren();
+
+    const loadingMessage = document.createElement("p");
+    loadingMessage.textContent = "Loading LEGO sets...";
+    loadingMessage.setAttribute("role", "status");
+
+    legoContainer.appendChild(loadingMessage);
+
     try {
         const response = await fetch(
             `/.netlify/functions/searchLegoSets?search=${encodeURIComponent(searchTerm)}`
