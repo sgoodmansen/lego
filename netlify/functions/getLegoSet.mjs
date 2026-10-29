@@ -59,6 +59,9 @@ export default async function handler(request, context) {
 
         const themeData = await themeResponse.json();
         console.log("LEGO theme: ", themeData.name);
+        
+        // Add theme name to set data information
+        data.theme_name = themeData.name;
 
         // Return the LEGO set information to the browser.
         return Response.json(data);
