@@ -488,5 +488,4 @@ function ratingTemplate(rating) {
     return html
 }
 
-displaySets(legoSets);
 loadLegoSets("castle");
