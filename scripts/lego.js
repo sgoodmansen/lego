@@ -1,6 +1,7 @@
 import { addToCollection } from "./collectionStorage.js";
 
 let legoContainer = document.querySelector('#lego-sets');
+let currentController = null;
 
 const searchInput = document.getElementById("search");
 const searchButton = document.getElementById("search-btn");
@@ -34,6 +35,11 @@ function searchSets() {
 }
 
 async function loadLegoSets(searchTerm) {
+    if (currentController) {
+        currentController.abort();
+    }
+    currentController = new AbortController();
+
     legoContainer.replaceChildren();
 
     const loadingMessage = document.createElement("p");
@@ -44,7 +50,8 @@ async function loadLegoSets(searchTerm) {
 
     try {
         const response = await fetch(
-            `/.netlify/functions/searchLegoSets?search=${encodeURIComponent(searchTerm)}`
+            `/.netlify/functions/searchLegoSets?search=${encodeURIComponent(searchTerm)}`,
+            { signal: currentController.signal }
         );
 
         if (!response.ok) {
@@ -70,7 +77,10 @@ async function loadLegoSets(searchTerm) {
 
         console.log("Converted LEGO sets: ", apiSets);
     } catch (error) {
-        console.log("DEBUG: Entered loadLegoSets catch block");
+        if (error.name === "AbortError") {
+            return;
+        }
+        
         console.error("Unable to load LEGO sets:", error);
 
         legoContainer.replaceChildren();
