@@ -66,7 +66,15 @@ async function getSetDetails(setNumber) {
         detailsContainer.appendChild(addButton);
 
         addButton.addEventListener("click", function() {
-            console.log("Add to Collection clicked: ", data.set_num);
+            const selectedSet = {
+                setNumber: data.set_num,
+                name: data.name,
+                theme: `Theme ID: ${data.theme_id}`
+            };
+
+            addToCollection(selectedSet);
+
+            console.log("Added to collection: ", selectedSet);
         })
     } catch (error) {
         console.error("Error retrieving LEGO set: ", error);
