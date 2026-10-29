@@ -55,9 +55,15 @@ async function getSetDetails(setNumber) {
         setYear.textContent = `Release Year: ${data.year}`;
         detailsContainer.appendChild(setYear);
 
+        // LEGO SET PIECE COUNT
         const setPieces = document.createElement("p");
         setPieces.textContent = `Pieces: ${data.num_parts.toLocaleString()}`;
         detailsContainer.appendChild(setPieces);
+
+        // LEGO SET THEME NAME
+        const setTheme = document.createElement("p");
+        setTheme.textContent = `Theme: ${data.theme_name}`;
+        detailsContainer.appendChild(setTheme);
 
         // Create the Add to My Collection button
         const addButton = document.createElement("button");
@@ -75,7 +81,7 @@ async function getSetDetails(setNumber) {
             const selectedSet = {
                 setNumber: data.set_num,
                 name: data.name,
-                theme: `Theme ID: ${data.theme_id}`
+                theme: data.theme_name
             };
 
             addToCollection(selectedSet);
