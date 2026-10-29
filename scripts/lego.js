@@ -337,6 +337,8 @@ async function loadLegoSets() {
             };
         });
 
+        displayApiSets(apiSets);
+
         console.log("Converted LEGO sets: ", apiSets);
     } catch (error) {
         console.error("Unable to load LEGO sets:", error);
@@ -385,7 +387,36 @@ function displaySets(sets) {
     });
 }
 
+function displayApiSets(sets) {
+    legoContainer.innerHTML = "";
 
+    if (sets.length === 0) {
+        const message = document.createElement("p");
+        message.textContent = "No LEGO sets found.";
+        legoContainer.appendChild(message);
+        return;
+    }
+
+    sets.forEach(function(set) {
+        const card = document.createElement("article");
+        card.classList.add("set-card");
+
+        const name = document.createElement("h2");
+        name.textContent = set.name;
+
+        const number = document.createElement("p");
+        number.textContent = `Set Number: ${set.setNumber}`;
+
+        const pieces = document.createElement("p");
+        pieces.textContent = `Pieces: ${set.pieces.toLocaleString()}`;
+
+        card.appendChild(name);
+        card.appendChild(number);
+        card.appendChild(pieces);
+
+        legoContainer.appendChild(card);
+    });
+}
 
 function ratingTemplate(rating) {
     let html = `<span
