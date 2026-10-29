@@ -70,6 +70,7 @@ async function loadLegoSets(searchTerm) {
 
         console.log("Converted LEGO sets: ", apiSets);
     } catch (error) {
+        console.log("DEBUG: Entered loadLegoSets catch block");
         console.error("Unable to load LEGO sets:", error);
 
         legoContainer.replaceChildren();
