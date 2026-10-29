@@ -386,6 +386,19 @@ function displaySets(sets) {
         card.appendChild(addButton);
     });
 }
+async function getThemeName(setNumber) {
+    const response = await fetch(
+        `/.netlify/functions/getLegoSet?set=${encodeURIComponent(setNumber)}`
+    );
+
+    if (!response.ok) {
+        throw new Error(`Unable to retrieve set: ${setNumber}`);
+    }
+
+    const data = await response.json();
+
+    return data.theme_name;
+}
 
 function displayApiSets(sets) {
     legoContainer.innerHTML = "";
@@ -459,3 +472,10 @@ function ratingTemplate(rating) {
 
 displaySets(legoSets);
 loadLegoSets();
+getThemeName("10307-1")
+    .then(function(theme) {
+        console.log("Retrieved theme: ", theme);
+    })
+    .catch(function(error) {
+        console.error("Theme lookup failed: ", error);
+    });
