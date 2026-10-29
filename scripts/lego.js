@@ -312,10 +312,10 @@ function searchSets() {
     displaySets(filteredSets);
 }
 
-async function loadLegoSets() {
+async function loadLegoSets(searchTerm) {
     try {
         const response = await fetch(
-            "/.netlify/functions/searchLegoSets?search=castle"
+            `/.netlify/functions/searchLegoSets?search=${encodeURIComponent(searchTerm)}`
         );
 
         if (!response.ok) {
@@ -491,4 +491,4 @@ function ratingTemplate(rating) {
 }
 
 displaySets(legoSets);
-loadLegoSets();
+loadLegoSets("castle");
