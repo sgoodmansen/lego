@@ -443,8 +443,28 @@ function displayApiSets(sets) {
         addButton.textContent = "Add to Collection";
         addButton.classList.add("add-to-collection-btn");
 
-        addButton.addEventListener("click", function() {
-            addToCollection(set);
+        addButton.addEventListener("click", async function() {
+            addButton.disabled = true;
+
+            try {
+                const themeName = await getThemeName(set.setNumber);
+
+                const selectedSet = {
+                    setNumber: set.setNumber,
+                    name: set.name,
+                    theme: themeName
+                };
+
+                addToCollection(selectedSet);
+
+                console.log("Added to collection: ", selectedSet);
+            } catch (error) {
+                console.error("Unable to add LEGO set: ", error);
+                alert("Unable to add this set right now. Please try again.");
+            } finally {
+                addButton.disabled = false;
+            }
+
         });
 
         card.appendChild(addButton);
@@ -472,10 +492,3 @@ function ratingTemplate(rating) {
 
 displaySets(legoSets);
 loadLegoSets();
-getThemeName("10307-1")
-    .then(function(theme) {
-        console.log("Retrieved theme: ", theme);
-    })
-    .catch(function(error) {
-        console.error("Theme lookup failed: ", error);
-    });
