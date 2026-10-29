@@ -22,7 +22,18 @@ export function addToCollection(set) {
 
     //search for matching set inside collection
     const existingSet = collection.find(function(item) {
-        return item.setNumber === set.setNumber;
+        const storedNumber = String(item.setNumber);
+        const incomingNumber = String(set.setNumber);
+
+        const normalizedStored = storedNumber.endsWith("-1")
+            ? storedNumber
+            : `${storedNumber}-1`;
+
+        const normalizedIncoming = incomingNumber.endsWith("-1")
+            ? incomingNumber
+            : `${incomingNumber}-1`;
+
+        return normalizedStored === normalizedIncoming;
     });
 
     console.log("Existing set: ", existingSet);
