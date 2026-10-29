@@ -288,7 +288,7 @@ searchButton.addEventListener("click", searchSets);
 // When clear button is clicked
 document.getElementById("clear-btn").addEventListener("click", () => {
     searchInput.value = "";
-    displaySets(legoSets);
+    loadLegoSets("castle");
 });
 
 // When Enter key is pressed in the search field
