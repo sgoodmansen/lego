@@ -20,7 +20,7 @@ export default async function handler(request, context) {
             );
         }
 
-        // Request the Millennium Falcon LEGO set.
+        // Request the LEGO set details
         const url = `https://rebrickable.com/api/v3/lego/sets/${encodeURIComponent(setNumber)}/`;
 
         const response = await fetch(url, {
@@ -44,6 +44,21 @@ export default async function handler(request, context) {
 
         // Convert the JSON response into a JavaScript object.
         const data = await response.json();
+
+        // Return the theme associated with this LEGO set
+        const themeUrl = `https://rebrickable.com/api/v3/lego/themes/${data.theme_id}`
+        const themeResponse = await fetch(themeUrl, {
+            headers: {
+                Authorization: `key ${apiKey}`
+            }
+        });
+
+        if (!themeResponse.ok) {
+            throw new Error(`Rebrickable theme API error: ${themeResponse.status}`);
+        }
+
+        const themeData = await themeResponse.json();
+        console.log("LEGO theme: ", themeData.name);
 
         // Return the LEGO set information to the browser.
         return Response.json(data);
