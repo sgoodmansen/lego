@@ -299,17 +299,15 @@ searchInput.addEventListener("keydown", function(event) {
 });
 
 function searchSets() {
-    const query = searchInput.value.toLowerCase();
+    const query = searchInput.value.trim();
     
-    console.log("Searching for:", query);
+    console.log("Searching Rebrickable for: ", query);
 
-    const filteredSets = legoSets.filter(set =>
-        set.name.toLowerCase().includes(query) || 
-        set.theme.toLowerCase().includes(query) || 
-        set.description.toLowerCase().includes(query) ||
-        set.searchText.includes(query));
+    if (query === "") {
+        return;
+    }
 
-    displaySets(filteredSets);
+    loadLegoSets(query);
 }
 
 async function loadLegoSets(searchTerm) {
