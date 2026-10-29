@@ -407,7 +407,11 @@ function displayApiSets(sets) {
         image.loading = "lazy";
 
         const name = document.createElement("h2");
-        name.textContent = set.name;
+        const detailsLink = document.createElement("a");
+        detailsLink.href = `set-details.html?set=${encodeURIComponent(set.setNumber)}`;
+        detailsLink.textContent = set.name;
+
+        name.appendChild(detailsLink);
 
         const number = document.createElement("p");
         number.textContent = `Set Number: ${set.setNumber}`;
