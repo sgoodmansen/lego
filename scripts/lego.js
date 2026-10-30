@@ -170,8 +170,10 @@ function displayApiSets(sets) {
                 };
 
                 addToCollection(selectedSet);
+                addButton.textContent = "Added to Collection!";
 
                 console.log("Added to collection: ", selectedSet);
+                
             } catch (error) {
                 console.error("Unable to add LEGO set: ", error);
                 alert("Unable to add this set right now. Please try again.");
