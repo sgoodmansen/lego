@@ -218,6 +218,10 @@ a:hover {
     transition: transform 0.2s ease;
 }
 
+.set-card:hover {
+    transform: translateY(-5px);
+}
+
 .set-info {
     padding: 1rem;
 }
@@ -230,8 +234,24 @@ a:hover {
     overflow-wrap: anywhere;
 }
 
-.set-card:hover {
-    transform: translateY(-5px);
+.add-to-collection-btn {
+    padding: 10px 16px;
+    background-color: #0058a0;
+    color: white;
+    border: 2px solid #0058a0;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.add-to-collection-btn:hover:not(:disabled) {
+    background-color: #003f73;
+}
+
+.add-to-collection-btn:focus-visible {
+    outline: 3px solid #005fcc;
+    outline-offset: 3px;
 }
 
 @media (prefers-reduced-motion: reduce) {
