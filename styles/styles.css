@@ -218,6 +218,16 @@ a:hover {
     transition: transform 0.2s ease;
 }
 
+.set-card:hover {
+    transform: translate(-5px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .set-card {
+        transition: none;
+    }
+}
+
 .set-card img {
     width: 100%;
     height: 220px;
