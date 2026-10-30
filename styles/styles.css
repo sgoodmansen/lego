@@ -315,6 +315,26 @@ a:hover {
 }
 
 /* ADD LEGO SET FORM */
+#add-set-btn {
+    padding: 10px 16px;
+    background-color: #0058a0;
+    color: white;
+    border: 2px solid #0058a0;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#add-set-btn:hover {
+    background-color: #003f73;
+    border-color: #003f73;
+}
+
+add-set-btn:focus-visible {
+    outline: 3px solid #005fcc;
+    outline-offset: 3px;
+}
+
 #add-set-form label {
     display: block;
 }
@@ -367,6 +387,26 @@ a:hover {
 
 .collection-card p {
     margin-bottom: 0.5rem;
+}
+
+.remove-set-btn{
+    padding: 10px 16px;
+    background-color: white;
+    color: #bf0f15;
+    border: 2px solid #bf0f15;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+remove-set-btn:hover {
+    background-color: #bf0f15;
+    color: white;
+}
+
+.remove-set-btn:focus-visible {
+    outline: 3px solid #005fcc;
+    outline-offset: 3px;
 }
 
 
