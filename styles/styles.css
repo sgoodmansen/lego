@@ -399,7 +399,7 @@ add-set-btn:focus-visible {
     cursor: pointer;
 }
 
-remove-set-btn:hover {
+.remove-set-btn:hover {
     background-color: #bf0f15;
     color: white;
 }
