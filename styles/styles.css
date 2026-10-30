@@ -319,6 +319,16 @@ a:hover {
     display: block;
 }
 
+#add-set-form input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
 /* REBRICKABLE API SEARCH - MOBILE FIRST */
 #api-search-form {
     display: flex;
