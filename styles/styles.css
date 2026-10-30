@@ -369,10 +369,25 @@ a:hover {
     border-color: #003f73;
 } 
 
+#add-set-form button[type="submit"]:focus-visible {
+    outline: 3px solid #005fcc;
+    outline-offset: 3px;    
+}
+
 #cancel-set-btn {
     background-color: #e5e5e5;
     color: #222;
     border: 2px solid #aaa;
+}
+
+#cancel-set-btn:hover {
+    background-color: #d0d0d0;
+    border-color: #888;
+}
+
+#cancel-set-btn:focus-visible {
+    outline: 3px solid #005fcc;
+    outline-offset: 3px;
 }
 
 /* COLLECTION CARDS */
