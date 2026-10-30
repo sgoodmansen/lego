@@ -222,6 +222,14 @@ a:hover {
     padding: 1rem;
 }
 
+.set-info h2 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-size: clamp(1.25rem, 2vw, 1.6rem);
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+}
+
 .set-card:hover {
     transform: translateY(-5px);
 }
