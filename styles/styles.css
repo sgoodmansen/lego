@@ -218,6 +218,10 @@ a:hover {
     transition: transform 0.2s ease;
 }
 
+.set-info {
+    padding: 1rem;
+}
+
 .set-card:hover {
     transform: translateY(-5px);
 }

@@ -128,6 +128,9 @@ function displayApiSets(sets) {
         const card = document.createElement("article");
         card.classList.add("set-card");
 
+        const cardInfo = document.createElement("div");
+        cardInfo.classList.add("set-info");
+
         const image = document.createElement("img");
         image.src = set.image;
         image.alt = set.name;
@@ -147,9 +150,10 @@ function displayApiSets(sets) {
         pieces.textContent = `Pieces: ${set.pieces.toLocaleString()}`;
 
         card.appendChild(image);
-        card.appendChild(name);
-        card.appendChild(number);
-        card.appendChild(pieces);
+
+        cardInfo.appendChild(name);
+        cardInfo.appendChild(number);
+        cardInfo.appendChild(pieces);
 
         const addButton = document.createElement("button");
 
@@ -173,7 +177,7 @@ function displayApiSets(sets) {
                 addButton.textContent = "Added to Collection!";
 
                 console.log("Added to collection: ", selectedSet);
-                
+
             } catch (error) {
                 console.error("Unable to add LEGO set: ", error);
                 alert("Unable to add this set right now. Please try again.");
@@ -183,7 +187,8 @@ function displayApiSets(sets) {
 
         });
 
-        card.appendChild(addButton);
+        cardInfo.appendChild(addButton);
+        card.appendChild(cardInfo);
 
         legoContainer.appendChild(card);
     });
