@@ -453,12 +453,17 @@ a:hover {
 }
 
 /* COLLECTION CARDS */
+#collection-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
 .collection-card {
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 10px;
     padding: 1.5rem;
-    margin-bottom: 1rem;
     box-shadow: 0 3px 8px rgba(0,0,0,0.1);
 }
 
@@ -604,6 +609,10 @@ footer {
     grid-template-columns: repeat(2, 1fr);
     }
 
+    #collection-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     /* Rebrickable search layout for larger screens */
     #api-search-form {
         flex-direction: row;
@@ -631,6 +640,10 @@ footer {
 
     #lego-sets {
     grid-template-columns: repeat(3, 1fr);
+    }
+
+    #collection-list {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
 }
