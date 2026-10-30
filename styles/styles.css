@@ -347,6 +347,15 @@ a:hover {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
+@media (min-width: 768px) {
+    .details-card {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: start;
+    }
+}
+
 .save-message {
     color: #216e39;
     font-weight: bold;
