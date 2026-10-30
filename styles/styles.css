@@ -400,6 +400,26 @@ a:hover {
     outline-offset: 3px;
 }
 
+.add-collection-btn {
+    background-color: #0058a0;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.75rem 1.25rem;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.add-collection-btn:hover {
+    background-color: #003f73;
+}
+
+.add-collection-btn:focus-visible {
+    outline: 3px solid #ffcc00;
+    outline-offset: 3px;
+}
+
 #add-set-btn {
     padding: 10px 16px;
     background-color: #0058a0;
