@@ -369,6 +369,24 @@ a:hover {
     margin-top: .75rem;
 }
 
+.back-to-explore {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: #0058a0;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.back-to-explore:hover {
+    color: #003f73;
+}
+
+.back-to-explore:focus-visible {
+    outline: 3px solid #ffcc00;
+    outline-offset: 3px;
+}
+
 /* ADD LEGO SET FORM */
 .collection-actions {
     display: flex;
