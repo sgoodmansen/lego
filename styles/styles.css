@@ -329,6 +329,27 @@ a:hover {
     font-size: 1rem;
 }
 
+#add-set-form button {
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+#add-set-form button[type="submit"] {
+    background-color: #0058a0;
+    color: white;
+    border: 2px solid #0058a0;
+}
+
+#cancel-set-btn {
+    background-color: #e5e5e5;
+    color: #222;
+    border: 2px solid #aaa;
+}
+
 /* REBRICKABLE API SEARCH - MOBILE FIRST */
 #api-search-form {
     display: flex;
