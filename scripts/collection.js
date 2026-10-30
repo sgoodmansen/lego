@@ -77,6 +77,7 @@ addSetButton.addEventListener("click", function() {
 });
 
 cancelSetButton.addEventListener("click", function() {
+    addSetForm.reset();
     addSetForm.hidden = true;
 });
 
