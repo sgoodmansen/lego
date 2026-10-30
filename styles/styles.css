@@ -219,7 +219,7 @@ a:hover {
 }
 
 .set-card:hover {
-    transform: translate(-5px);
+    transform: translateY(-5px);
 }
 
 @media (prefers-reduced-motion: reduce) {
