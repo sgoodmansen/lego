@@ -48,7 +48,7 @@ nav a {
     text-decoration: none;
     font-weight: bold;
     color: #bf0f15;
-    transition: background 0.2s ease;
+    transition: background-color 0.2s ease;
     padding: 12px 16px;
 }
 
@@ -89,7 +89,7 @@ nav a:active {
 
 /* HERO */
 #hero {
-    position: relative;;
+    position: relative;
 }
 
 .hero-img {
@@ -168,6 +168,11 @@ a:hover {
     outline: none;
 }
 
+.search input:focus-visible {
+    outline: 3px solid #005fcc;
+    outline-offset: 2px;
+}
+
 #search-btn {
     padding: 12px 16px;
     border: 2px solid #ddd;
@@ -213,6 +218,48 @@ a:hover {
     transition: transform 0.2s ease;
 }
 
+.set-card:hover {
+    transform: translateY(-5px);
+}
+
+.set-info {
+    padding: 1rem;
+}
+
+.set-info h2 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-size: clamp(1.25rem, 2vw, 1.6rem);
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+}
+
+.add-to-collection-btn {
+    padding: 10px 16px;
+    background-color: #0058a0;
+    color: white;
+    border: 2px solid #0058a0;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.add-to-collection-btn:hover:not(:disabled) {
+    background-color: #003f73;
+}
+
+.add-to-collection-btn:focus-visible {
+    outline: 3px solid #005fcc;
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .set-card {
+        transition: none;
+    }
+}
+
 .set-card img {
     width: 100%;
     height: 220px;
@@ -250,6 +297,247 @@ a:hover {
     width: 100%;
     height: auto;
     margin-top: 1rem;
+}
+
+.api-error {
+    background-color: #fff0f0;
+    color: #8c0b10;
+    border-left: 4px solid #bf0f15;
+    border-radius: 6px;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.api-search-container {
+    max-width: 850px;
+    margin: 1.5rem auto;
+}
+
+#api-search-form {
+    max-width: 100%;
+}
+
+/* LEGO Set Details */
+.set-image {
+    display: block;
+    width: 100%;
+    max-width: 450px;
+    max-height: 500px;
+    height: auto;
+    object-fit: contain;
+    object-position: left center;
+}
+
+#set-details {
+    padding: 2rem 1rem;
+}
+
+#set-details-container {
+    margin: 1.5rem 0;
+}
+
+#set-details-container p {
+    margin: 0.75rem 0;
+}
+
+.save-message {
+    color: #216e39;
+    font-weight: bold;
+    margin-top: .75rem;
+}
+
+/* ADD LEGO SET FORM */
+.collection-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.collection-actions .button {
+    display: inline-block;
+    padding: 10px 16px;
+    background-color: white;
+    color: #0058a0;
+    border: 2px solid #0058a0;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.collection-actions .button:hover {
+    background-color: #0058a0;
+    color: white;
+}
+
+.collection-actions .button:focus-visible {
+    outline: 3px solid #005fcc;
+    outline-offset: 3px;
+}
+
+#add-set-btn {
+    padding: 10px 16px;
+    background-color: #0058a0;
+    color: white;
+    border: 2px solid #0058a0;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#add-set-btn:hover {
+    background-color: #003f73;
+    border-color: #003f73;
+}
+
+#add-set-btn:focus-visible {
+    outline: 3px solid #005fcc;
+    outline-offset: 3px;
+}
+
+#add-set-form label {
+    display: block;
+}
+
+#add-set-form input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+#add-set-form button {
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+#add-set-form button[type="submit"] {
+    background-color: #0058a0;
+    color: white;
+    border: 2px solid #0058a0;
+}
+
+#add-set-form button[type="submit"]:hover {
+    background-color: #003f73;
+    border-color: #003f73;
+} 
+
+#add-set-form button[type="submit"]:focus-visible {
+    outline: 3px solid #005fcc;
+    outline-offset: 3px;    
+}
+
+#cancel-set-btn {
+    background-color: #e5e5e5;
+    color: #222;
+    border: 2px solid #aaa;
+}
+
+#cancel-set-btn:hover {
+    background-color: #d0d0d0;
+    border-color: #888;
+}
+
+#cancel-set-btn:focus-visible {
+    outline: 3px solid #005fcc;
+    outline-offset: 3px;
+}
+
+/* COLLECTION CARDS */
+#collection-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.collection-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.collection-card h3 {
+    color: #0058a0;
+    margin-bottom: 0.75rem;
+}
+
+.collection-card p {
+    margin-bottom: 0.5rem;
+}
+
+.remove-set-btn{
+    padding: 10px 16px;
+    background-color: white;
+    color: #bf0f15;
+    border: 2px solid #bf0f15;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.remove-set-btn:hover {
+    background-color: #bf0f15;
+    color: white;
+}
+
+.remove-set-btn:focus-visible {
+    outline: 3px solid #005fcc;
+    outline-offset: 3px;
+}
+
+
+/* REBRICKABLE API SEARCH - MOBILE FIRST */
+#api-search-form {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding: 1rem;
+}
+
+#api-search-form input {
+    width: 100%;
+    min-width: 0;
+    padding: 12px 16px;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+}
+
+#api-search-form button {
+    padding: 12px 16px;
+    border: 2px solid #ddd;
+    background: #ffcc00;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+#api-search-form button:hover:not(:disabled) {
+    background: #f4b400;
+}
+
+#api-search-form button:disabled {
+    background: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
+/* Higlight the input or button when navigating with keyboard */
+#api-search-form input:focus-visible,
+#api-search-form button:focus-visible {
+    outline: 3px solid #005fcc;
+    outline-offset: 3px;
 }
 
 /* FOOTER */
@@ -321,6 +609,21 @@ footer {
     grid-template-columns: repeat(2, 1fr);
     }
 
+    #collection-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* Rebrickable search layout for larger screens */
+    #api-search-form {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #api-search-form input{
+        flex: 1;
+        width:auto;
+    }
+    
 }
 
 /* DESKTOP */
@@ -337,6 +640,10 @@ footer {
 
     #lego-sets {
     grid-template-columns: repeat(3, 1fr);
+    }
+
+    #collection-list {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
 }
