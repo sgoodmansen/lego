@@ -79,7 +79,7 @@ async function getSetDetails(setNumber) {
 
         // Create the Add to My Collection button
         const addButton = document.createElement("button");
-        addButton.textContent = "Add to My Collection"
+        addButton.textContent = "Add to My Collection";
         addButton.classList.add("add-collection-btn");
         infoContainer.appendChild(addButton);
 
@@ -107,7 +107,7 @@ async function getSetDetails(setNumber) {
             saveMessage.textContent = `${data.name} added to your collection!`;
 
             console.log("Added to collection: ", selectedSet);
-        })
+        });
     } catch (error) {
         console.error("Error retrieving LEGO set: ", error);
 
