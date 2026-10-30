@@ -35,10 +35,12 @@ function searchSets() {
 }
 
 async function loadLegoSets(searchTerm) {
+    // to cancel an earlier search when a new search begins
     if (currentController) {
         currentController.abort();
     }
     currentController = new AbortController();
+    const controller = currentController;
 
     legoContainer.replaceChildren();
 
@@ -51,7 +53,7 @@ async function loadLegoSets(searchTerm) {
     try {
         const response = await fetch(
             `/.netlify/functions/searchLegoSets?search=${encodeURIComponent(searchTerm)}`,
-            { signal: currentController.signal }
+            { signal: controller.signal }
         );
 
         if (!response.ok) {
@@ -73,14 +75,19 @@ async function loadLegoSets(searchTerm) {
             };
         });
 
+        // Prevent outdated results from displaying
+        if (controller !== currentController) {
+            return;
+        }
+
         displayApiSets(apiSets);
 
         console.log("Converted LEGO sets: ", apiSets);
     } catch (error) {
-        if (error.name === "AbortError") {
+        if (error.name === "AbortError" || controller !== currentController) {
             return;
         }
-        
+
         console.error("Unable to load LEGO sets:", error);
 
         legoContainer.replaceChildren();
