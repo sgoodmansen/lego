@@ -33,49 +33,68 @@ async function getSetDetails(setNumber) {
         // Remove the loading message
         detailsContainer.textContent = "";
 
+        // Create the main card
+        const detailsCard = document.createElement("article");
+        detailsCard.classList.add("details-card");
+
+        // Create the image container
+        const imageContainer = document.createElement("div");
+        imageContainer.classList.add("details-image");
+
+        // Create the information container
+        const infoContainer = document.createElement("div");
+        infoContainer.classList.add("details-info");
+
         // LEGO SET NAME
         const setName = document.createElement("h2"); // Create a heading for the LEGO set    
         setName.textContent = data.name; // Add the set name returned by Rebrickable
-        detailsContainer.appendChild(setName); // Insert the heading into the page
+        infoContainer.appendChild(setName); 
 
         // LEGO SET IMAGE
         const setImage = document.createElement("img"); // Create the LEGO set image
         setImage.src = data.set_img_url; // Set the image source
         setImage.alt = data.name; // Provide alternative text for accessibility
         setImage.classList.add("set-image"); // Add a CSS class for styling 
-        detailsContainer.appendChild(setImage); // Insert the image into the page
+        imageContainer.appendChild(setImage); 
 
         // LEGO SET NUMBER
         const setNumberText = document.createElement("p");
         setNumberText.textContent = `Set Number: ${data.set_num}`;
-        detailsContainer.appendChild(setNumberText);
+        infoContainer.appendChild(setNumberText);
 
         // LEGO SET RELEASE YEAR
         const setYear = document.createElement("p");
         setYear.textContent = `Release Year: ${data.year}`;
-        detailsContainer.appendChild(setYear);
+        infoContainer.appendChild(setYear);
 
         // LEGO SET PIECE COUNT
         const setPieces = document.createElement("p");
         setPieces.textContent = `Pieces: ${data.num_parts.toLocaleString()}`;
-        detailsContainer.appendChild(setPieces);
+        infoContainer.appendChild(setPieces);
 
         // LEGO SET THEME NAME
         const setTheme = document.createElement("p");
         setTheme.textContent = `Theme: ${data.theme_name}`;
-        detailsContainer.appendChild(setTheme);
+        infoContainer.appendChild(setTheme);
 
         // Create the Add to My Collection button
         const addButton = document.createElement("button");
         addButton.textContent = "Add to My Collection"
         addButton.classList.add("add-collection-btn");
-        detailsContainer.appendChild(addButton);
+        infoContainer.appendChild(addButton);
 
         const saveMessage = document.createElement("p");
         saveMessage.classList.add("save-message");
         saveMessage.setAttribute("role", "status");
         saveMessage.setAttribute("aria-live", "polite");
-        detailsContainer.appendChild(saveMessage);
+        infoContainer.appendChild(saveMessage);
+
+        // Add the image and information sections to the card
+        detailsCard.appendChild(imageContainer);
+        detailsCard.appendChild(infoContainer);
+
+        // Add the completed card to the webpage
+        detailsContainer.appendChild(detailsCard);
 
         addButton.addEventListener("click", function() {
             const selectedSet = {
