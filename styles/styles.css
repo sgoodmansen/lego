@@ -314,6 +314,11 @@ a:hover {
     margin-top: .75rem;
 }
 
+/* ADD LEGO SET FORM */
+#add-set-form label {
+    display: block;
+}
+
 /* REBRICKABLE API SEARCH - MOBILE FIRST */
 #api-search-form {
     display: flex;
