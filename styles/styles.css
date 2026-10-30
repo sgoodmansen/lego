@@ -330,7 +330,7 @@ a:hover {
     border-color: #003f73;
 }
 
-add-set-btn:focus-visible {
+#add-set-btn:focus-visible {
     outline: 3px solid #005fcc;
     outline-offset: 3px;
 }
@@ -363,6 +363,11 @@ add-set-btn:focus-visible {
     color: white;
     border: 2px solid #0058a0;
 }
+
+#add-set-form button[type="submit"]:hover {
+    background-color: #003f73;
+    border-color: #003f73;
+} 
 
 #cancel-set-btn {
     background-color: #e5e5e5;
