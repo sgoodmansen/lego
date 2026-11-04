@@ -130,3 +130,27 @@ addSetForm.addEventListener("submit", function(event) {
 cancelRemoveButton.addEventListener("click", function() {
     removeDialog.close();
 })
+
+confirmRemoveButton.addEventListener("click", function() {
+    // check if set was selected
+    if (setToRemove === null) {
+        return;
+    }
+
+    const myCollection = getCollection();
+
+    //find the selected set
+    const index = myCollection.findIndex(function(item) {
+        return String(item.setNumber) === String(setToRemove.setNumber);
+    });
+
+    // remove set and save
+    if (index !== -1) {
+        myCollection.splice(index, 1);
+        saveCollection(myCollection);
+    }
+
+    setToRemove = null;    //reset variable
+    removeDialog.close();  //close modal dialog
+    displayCollection();   //refresh collection list
+})
