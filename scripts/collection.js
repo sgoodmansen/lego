@@ -132,6 +132,8 @@ cancelRemoveButton.addEventListener("click", function() {
 })
 
 confirmRemoveButton.addEventListener("click", function() {
+    console.log("Confirm Remove Set button clicked");
+    
     // check if set was selected
     if (setToRemove === null) {
         return;
