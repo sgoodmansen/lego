@@ -6,6 +6,12 @@ const myCollection = getCollection();
 
 const collectionList = document.querySelector("#collection-list");
 
+let setToRemove = null;
+
+const removeDialog = document.querySelector("#remove-set-dialog");
+const cancelRemoveButton = document.querySelector("#cancel-remove-btn");
+const confirmRemoveButton = document.querySelector("confirm-remove-btn");
+
 function displayCollection() {
     collectionList.innerHTML = "";
 
@@ -41,18 +47,13 @@ function displayCollection() {
             removeButton.addEventListener("click", function() {
                 if (set.quantity > 1) {
                     set.quantity -= 1;
+
+                    saveCollection(myCollection); // Save collection to localStorage
+                    displayCollection();
                 } else { 
-                    const index = myCollection.findIndex(function(item) {
-                        return item.setNumber === set.setNumber;
-                    });
-
-                    if (index !== -1) {
-                        myCollection.splice(index, 1);
-                    }
-                }
-
-                saveCollection(myCollection); // Save collection to localStorage
-                displayCollection();
+                    setToRemove = set;
+                    removeDialog.showModal();
+                }    
             });
             
             card.appendChild(cardName);
@@ -125,3 +126,7 @@ addSetForm.addEventListener("submit", function(event) {
     addSetForm.hidden = true;
 
 });
+
+cancelRemoveButton.addEventListener("click", function() {
+    removeDialog.close();
+})
