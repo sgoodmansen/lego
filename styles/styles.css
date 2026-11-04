@@ -267,6 +267,25 @@ a:hover {
     box-shadow: 0 8px 24px rgba(0,0,0, 0.25);
 }
 
+.dialog-actions button {
+    padding: 0.65rem 1rem;
+    border-radius: 8px;
+    font: inherit;
+    cursor: pointer;
+}
+
+#cancel-remove-btn {
+    background-color: #005ea8;
+    color: white;
+    border: 2px solid #005ea8;
+}
+
+#confirm-remove-btn {
+    background-color: white;
+    color: #bf0f15;
+    border: 2px solid #bf0f15;
+}
+
 @media (prefers-reduced-motion: reduce) {
     .set-card {
         transition: none;
