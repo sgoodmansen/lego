@@ -139,8 +139,6 @@ confirmRemoveButton.addEventListener("click", function() {
         return;
     }
 
-    const myCollection = getCollection();
-
     //find the selected set
     const index = myCollection.findIndex(function(item) {
         return String(item.setNumber) === String(setToRemove.setNumber);
