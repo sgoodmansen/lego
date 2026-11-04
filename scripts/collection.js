@@ -154,3 +154,7 @@ confirmRemoveButton.addEventListener("click", function() {
     removeDialog.close();  //close modal dialog
     displayCollection();   //refresh collection list
 })
+
+removeDialog.addEventListener("close", function() {
+    setToRemove = null;
+})
