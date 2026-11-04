@@ -35,7 +35,7 @@ function displayCollection() {
 
             const removeButton = document.createElement("button");
             removeButton.type = "button";
-            removeButton.textContent = "Remove One";
+            removeButton.textContent = set.quantity > 1 ? "Remove One" : "Remove Set";
             removeButton.classList.add("remove-set-btn");
 
             removeButton.addEventListener("click", function() {
