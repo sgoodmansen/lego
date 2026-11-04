@@ -136,6 +136,10 @@ function displayApiSets(sets) {
         image.alt = set.name;
         image.loading = "lazy";
 
+        const imageLink = document.createElement("a");
+        imageLink.href = `set-details.html?set=${encodeURIComponent(set.setNumber)}`;
+        imageLink.appendChild(image);
+
         const name = document.createElement("h2");
         const detailsLink = document.createElement("a");
         detailsLink.href = `set-details.html?set=${encodeURIComponent(set.setNumber)}`;
@@ -149,7 +153,7 @@ function displayApiSets(sets) {
         const pieces = document.createElement("p");
         pieces.textContent = `Pieces: ${set.pieces.toLocaleString()}`;
 
-        card.appendChild(image);
+        card.appendChild(imageLink);
 
         cardInfo.appendChild(name);
         cardInfo.appendChild(number);
