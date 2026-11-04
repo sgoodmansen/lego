@@ -10,7 +10,7 @@ let setToRemove = null;
 
 const removeDialog = document.querySelector("#remove-set-dialog");
 const cancelRemoveButton = document.querySelector("#cancel-remove-btn");
-const confirmRemoveButton = document.querySelector("confirm-remove-btn");
+const confirmRemoveButton = document.querySelector("#confirm-remove-btn");
 
 function displayCollection() {
     collectionList.innerHTML = "";
@@ -133,7 +133,7 @@ cancelRemoveButton.addEventListener("click", function() {
 
 confirmRemoveButton.addEventListener("click", function() {
     console.log("Confirm Remove Set button clicked");
-    
+
     // check if set was selected
     if (setToRemove === null) {
         return;
