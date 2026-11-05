@@ -275,14 +275,14 @@ a:hover {
 }
 
 #cancel-remove-btn {
-    background-color: #005ea8;
-    color: white;
+    background-color: white;
+    color: #005ea8;
     border: 2px solid #005ea8;
 }
 
 #cancel-remove-btn:hover {
-    background-color: white;
-    color: #005ea8;
+    background-color: #005ea8;
+    color: white;
 }
 
 #confirm-remove-btn {
