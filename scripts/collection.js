@@ -28,7 +28,11 @@ function displayCollection() {
         card.classList.add("collection-card");
 
             const cardName = document.createElement("h3");
-            cardName.textContent = set.name;
+            const nameLink = document.querySelector("a");
+            nameLink.href = `set-details.html?set=${encodeURIComponent(set.Number)}`;
+            nameLink.textContent = set.name;
+
+            cardName.appendChild(nameLink);
 
             const cardNumber = document.createElement("p");
             cardNumber.textContent = `Set Number: ${set.setNumber}`;
