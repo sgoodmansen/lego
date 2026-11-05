@@ -47,102 +47,103 @@
         </nav>
     </header>
 
-<section class="collection">
-    <h1>My LEGO Collection</h1>
+    <section class="collection">
+        <h1>My LEGO Collection</h1>
 
-    <p>
-        Keep track of your LEGO sets and manage
-        your personal collection.
-    </p>
+        <p>
+            Keep track of your LEGO sets and manage
+            your personal collection.
+        </p>
 
-    <div class="collection-actions">
-        <a href="explore.html" class="button">
-            Browse LEGO Sets
-        </a>
+        <div class="collection-actions">
+            <a href="explore.html" class="button">
+                Browse LEGO Sets
+            </a>
 
-        <button type="button" id="add-set-btn">
-            Add a Set
-        </button>
-    </div>
+            <button type="button" id="add-set-btn">
+                Add a Set
+            </button>
+        </div>
 
-    <form id="add-set-form" hidden>
-        <h2>Add a LEGO set</h2>
+        <form id="add-set-form" hidden>
+            <h2>Add a LEGO set</h2>
 
-        <label for="set-number">Set Number</label>
-        <input 
-            type="text"
-            id="set-number"
-            name="setNumber"
-            required
-        >
+            <label for="set-number">Set Number</label>
+            <input 
+                type="text"
+                id="set-number"
+                name="setNumber"
+                required
+            >
 
-        <label for="set-name">Set Name</label>
-        <input 
-            type="text"
-            id="set-name"
-            name="setName"
-            required
-        >
+            <label for="set-name">Set Name</label>
+            <input 
+                type="text"
+                id="set-name"
+                name="setName"
+                required
+            >
 
-        <label for="set-theme">Theme</label>
-        <input 
-            type="text"
-            id="set-theme"
-            name="setTheme"
-            required
-        >
+            <label for="set-theme">Theme</label>
+            <input 
+                type="text"
+                id="set-theme"
+                name="setTheme"
+                required
+            >
 
-        <label for="set-quantity">Quantity</label>
-        <input 
-            type="number" 
-            id="set-quantity"
-            min="1" 
-            value="1"
-            required
-        >
+            <label for="set-quantity">Quantity</label>
+            <input 
+                type="number" 
+                id="set-quantity"
+                min="1" 
+                value="1"
+                required
+            >
 
-        <button type="submit">Save Set</button>
-        <button type="button" id="cancel-set-btn">Cancel</button>
-    </form>
+            <button type="submit">Save Set</button>
+            <button type="button" id="cancel-set-btn">Cancel</button>
+        </form>
 
-    <h2>My Sets</h2>
+        <h2>My Sets</h2>
 
-    <div id="collection-list">
-        <p>Your collection is currently empty.</p>
-    </div>
-</section>
+        <div id="collection-list">
+            <p>Your collection is currently empty.</p>
+        </div>
+    </section>
 
 
-<footer>
+    <footer>
 
-    <img src="images/brick_logo.png" alt="Brick Archive logo" class="footer_logo">
+        <img src="images/brick_logo.png" alt="Brick Archive logo" class="footer_logo">
 
-    <p>&copy; 2026 The Brick Archive</p>
+        <p>&copy; 2026 The Brick Archive</p>
 
-    <nav class="footer-nav">
-        <a href="index.html">Home</a>
-        <a href="explore.html">LEGO Sets</a>
-    </nav>
+        <nav class="footer-nav">
+            <a href="index.html">Home</a>
+            <a href="explore.html">LEGO Sets</a>
+        </nav>
 
-    <div class="social">
-        <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
-        <a href="#"><img src="images/twitter.png" alt="Twitter"></a>
-        <a href="#"><img src="images/instagram.png" alt="Instagram"></a>
-    </div>
+        <div class="social">
+            <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
+            <a href="#"><img src="images/twitter.png" alt="Twitter"></a>
+            <a href="#"><img src="images/instagram.png" alt="Instagram"></a>
+        </div>
 
-</footer>
+    </footer>
 
-<dialog id="remove-set-dialog" aria-labelledby="remove-dialog-title">
-    <h2 id="remove-dialog-title">Remove LEGO Set?</h2>
-    <p>Are you sure you want to remove this set from your collection?</p>
+    <dialog id="remove-set-dialog" aria-labelledby="remove-dialog-title">
+        <h2 id="remove-dialog-title">Remove LEGO Set?</h2>
+        <p>Are you sure you want to remove this set from your collection?</p>
 
-    <div class="dialog-actions">
-        <button type="button" id="cancel-remove-btn">Cancel</button>
-        <button type="button" id="confirm-remove-btn">Remove Set</button>
-    </div>
-</dialog>
+        <div class="dialog-actions">
+            <button type="button" id="cancel-remove-btn">Cancel</button>
+            <button type="button" id="confirm-remove-btn">Remove Set</button>
+        </div>
+    </dialog>
 
 </main>
+
 <script src="scripts/menu.js"></script>
 <script src="scripts/collection.js" type="module"></script>
 </body>
