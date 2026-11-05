@@ -29,7 +29,7 @@ function displayCollection() {
 
             const cardName = document.createElement("h3");
             const nameLink = document.querySelector("a");
-            nameLink.href = `set-details.html?set=${encodeURIComponent(set.Number)}`;
+            nameLink.href = `set-details.html?set=${encodeURIComponent(set.setNumber)}`;
             nameLink.textContent = set.name;
 
             cardName.appendChild(nameLink);
