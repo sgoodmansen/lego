@@ -320,40 +320,6 @@ a:hover {
     margin-top: 0.5rem;
 }
 
-/* Styling for LEGO sets retrieved from Rebrickable */
-.api-set-card {
-    max-width: 350px;
-    padding: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    margin: 1rem 0;
-}
-
-.api-set-image {
-    display: block;
-    width: 100%;
-    height: auto;
-    margin-top: 1rem;
-}
-
-.api-error {
-    background-color: #fff0f0;
-    color: #8c0b10;
-    border-left: 4px solid #bf0f15;
-    border-radius: 6px;
-    padding: 1rem;
-    margin: 1rem 0;
-}
-
-.api-search-container {
-    max-width: 850px;
-    margin: 1.5rem auto;
-}
-
-#api-search-form {
-    max-width: 100%;
-}
-
 /* LEGO Set Details */
 .set-image {
     display: block;
