@@ -251,7 +251,9 @@ function displayPagination(totalResults, focusButton = null) {
         nextButton.focus({ preventScroll: true });
         } else if (focusButton === "previous" && !previousButton.disabled) {
         previousButton.focus({ preventScroll: true });
-    }
+        } else if (focusButton === "next" && !previousButton.disabled) {
+            previousButton.focus({preventScroll:true});
+        }
 
     nextButton.addEventListener("click", function() {
         loadLegoSets(currentSearchTerm, currentPage + 1, "next");
