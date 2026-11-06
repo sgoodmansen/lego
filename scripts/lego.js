@@ -95,7 +95,7 @@ console.log("Previous page:", data.previous);
         }
 
         displayApiSets(apiSets);
-        displayPagination(data.count);
+        displayPagination(data.count, focusButton);
         loadingStatus.replaceChildren();
 
         console.log("Converted LEGO sets: ", apiSets);
@@ -217,7 +217,7 @@ function displayApiSets(sets) {
     });
 }
 
-function displayPagination(totalResults) {
+function displayPagination(totalResults, focusButton = null) {
     const pageSize = 18;
     const totalPages = Math.ceil(totalResults / pageSize);
 
@@ -247,8 +247,14 @@ function displayPagination(totalResults) {
     
     paginationContainer.appendChild(nextButton);
 
+    if (focusButton === "next" && !nextButton.disabled) {
+        nextButton.focus({ preventScroll: true });
+        } else if (focusButton === "previous" && !previousButton.disabled) {
+        previousButton.focus({ preventScroll: true });
+    }
+
     nextButton.addEventListener("click", function() {
-        loadLegoSets(currentSearchTerm, currentPage + 1);
+        loadLegoSets(currentSearchTerm, currentPage + 1, "next");
 
         legoContainer.scrollIntoView({
             behavior:"smooth",
@@ -257,7 +263,7 @@ function displayPagination(totalResults) {
     });
 
     previousButton.addEventListener("click", function() {
-        loadLegoSets(currentSearchTerm, currentPage - 1);
+        loadLegoSets(currentSearchTerm, currentPage - 1, "previous");
 
         legoContainer.scrollIntoView({
             behavior:"smooth",
