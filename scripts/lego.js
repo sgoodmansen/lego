@@ -49,7 +49,6 @@ async function loadLegoSets(searchTerm, page = 1) {
     currentController = new AbortController();
     const controller = currentController;
 
-    legoContainer.replaceChildren();
     paginationContainer.replaceChildren();
 
     const loadingMessage = document.createElement("p");
