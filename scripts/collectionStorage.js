@@ -18,6 +18,7 @@ export function saveCollection(collection) {
 // Add a LEGO set to the saved collection
 // Increase quantity if already exists.
 export function addToCollection(set) {
+    console.log("Received by addToCollection: ", JSON.stringify(set));
     const collection = getCollection();  //retrieve collection from localStorage
 
     //search for matching set inside collection
