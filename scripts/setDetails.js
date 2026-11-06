@@ -101,10 +101,10 @@ async function getSetDetails(setNumber) {
                 setNumber: data.set_num,
                 name: data.name,
                 theme: data.theme_name,
-                imgUrl: data.set_img_url
+                imageUrl: data.set_img_url
             };
 
-            console.log("Selected set image URL: ", selectedSet.imgUrl);
+            console.log("Selected set image URL: ", selectedSet.imageUrl);
 
             addToCollection(selectedSet);
             saveMessage.textContent = `${data.name} added to your collection!`;
