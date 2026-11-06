@@ -249,6 +249,11 @@ function displayPagination(totalResults) {
 
     nextButton.addEventListener("click", function() {
         loadLegoSets(currentSearchTerm, currentPage + 1);
+
+        legoContainer.scrollIntoView({
+            behavior:"smooth",
+            block: "start",
+        });
     });
 
     previousButton.addEventListener("click", function() {
