@@ -68,41 +68,51 @@
         <form id="add-set-form" hidden>
             <h2>Add a LEGO set</h2>
 
-            <label for="set-number">Set Number</label>
-            <input 
-                type="text"
-                id="set-number"
-                name="setNumber"
-                required
-            >
+            <div>
+                <label for="set-number">Set Number</label>
+                <input 
+                    type="text"
+                    id="set-number"
+                    name="setNumber"
+                    required
+                >
+            </div>
 
-            <label for="set-name">Set Name</label>
-            <input 
-                type="text"
-                id="set-name"
-                name="setName"
-                required
-            >
+            <div>
+                <label for="set-name">Set Name</label>
+                <input 
+                    type="text"
+                    id="set-name"
+                    name="setName"
+                    required
+                >
+            </div>
 
-            <label for="set-theme">Theme</label>
-            <input 
-                type="text"
-                id="set-theme"
-                name="setTheme"
-                required
-            >
+            <div>
+                <label for="set-theme">Theme</label>
+                <input 
+                    type="text"
+                    id="set-theme"
+                    name="setTheme"
+                    required
+                >
+            </div>
 
-            <label for="set-quantity">Quantity</label>
-            <input 
-                type="number" 
-                id="set-quantity"
-                min="1" 
-                value="1"
-                required
-            >
+            <div>
+                <label for="set-quantity">Quantity</label>
+                <input 
+                    type="number" 
+                    id="set-quantity"
+                    min="1" 
+                    value="1"
+                    required
+                >
+            </div>
 
-            <button type="submit">Save Set</button>
-            <button type="button" id="cancel-set-btn">Cancel</button>
+            <div class="form-actions">
+                <button type="submit">Save Set</button>
+                <button type="button" id="cancel-set-btn">Cancel</button>
+            </div>
         </form>
 
         <h2>My Sets</h2>
