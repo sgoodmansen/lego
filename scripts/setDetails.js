@@ -104,6 +104,8 @@ async function getSetDetails(setNumber) {
                 imgUrl: data.set_img_url
             };
 
+            console.log("Selected set image URL: ", selectedSet.imgUrl);
+
             addToCollection(selectedSet);
             saveMessage.textContent = `${data.name} added to your collection!`;
 
