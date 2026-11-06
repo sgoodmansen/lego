@@ -561,6 +561,8 @@ a:hover {
 }
 
 .remove-set-btn{
+    margin-top: auto;
+    align-self: flex-start;
     padding: 10px 16px;
     background-color: white;
     color: #bf0f15;
@@ -568,7 +570,6 @@ a:hover {
     border-radius: 6px;
     font-size: 1rem;
     cursor: pointer;
-    margin-top: auto;
 }
 
 .remove-set-btn:hover {
