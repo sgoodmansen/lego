@@ -18,7 +18,6 @@ export function saveCollection(collection) {
 // Add a LEGO set to the saved collection
 // Increase quantity if already exists.
 export function addToCollection(set) {
-    console.log("Received by addToCollection: ", JSON.stringify(set));
     const collection = getCollection();  //retrieve collection from localStorage
 
     //search for matching set inside collection
@@ -42,9 +41,6 @@ export function addToCollection(set) {
     if (existingSet) {
         existingSet.quantity += 1;  //increase quantity by 1 if there is already a set in the collection
 
-        console.log("Exisiting image: ", existingSet.imageUrl);
-        console.log("Incoming image:", set.imageUrl);
-
         // add an image if the existing entry doesn't have one
         if (!existingSet.imageUrl && set.imageUrl) {
             existingSet.imageUrl = set.imageUrl;
@@ -60,6 +56,5 @@ export function addToCollection(set) {
         collection.push(newSet);  //Add newSet to end of the collection array
     }
 
-    console.log("Collection before saving: ", JSON.stringify(collection));
     saveCollection(collection);  //Save collection to localStorage
 }
