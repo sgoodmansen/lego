@@ -61,6 +61,10 @@ async function loadLegoSets(searchTerm) {
         }
 
         const data = await response.json();
+
+console.log("Total matching sets:", data.count);
+console.log("Next page:", data.next);
+console.log("Previous page:", data.previous);
         
         console.log("Explore API results: ", data.results);
 
