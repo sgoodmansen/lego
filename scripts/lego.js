@@ -40,7 +40,7 @@ function searchSets() {
     loadLegoSets(query);
 }
 
-async function loadLegoSets(searchTerm, page = 1) {
+async function loadLegoSets(searchTerm, page = 1, focusButton = null) {
     currentSearchTerm = searchTerm;
     currentPage = page;
 
