@@ -2,6 +2,17 @@ export default async function handler(request) {
     const url = new URL(request.url);
 
     const searchTerm = url.searchParams.get("search")?.trim();
+    const page = Number(url.searchParams.get("page") || 1);
+
+    if (!Number.isInteger(page) || page < 1) {
+        return new Response(
+            JSON.stringify({ error: "Invalid page number"}),
+            {
+                status: 400,
+                headers: { "Content-Type": "application/json" }
+            }
+        );
+    }
 
     // Prevent empty searches from reaching Rebrickable
     if (!searchTerm) {
@@ -37,7 +48,8 @@ export default async function handler(request) {
         );
 
         rebrickableURL.searchParams.set("search", searchTerm);
-        rebrickableURL.searchParams.set("page_size", "20");
+        rebrickableURL.searchParams.set("page_size", "18");
+        rebrickableURL.searchParams.set("page", String(page));
 
         const response = await fetch(rebrickableURL, {
             headers: {

@@ -1,7 +1,11 @@
 import { addToCollection } from "./collectionStorage.js";
 
 let legoContainer = document.querySelector('#lego-sets');
+const paginationContainer = document.querySelector(#pagination);
+
 let currentController = null;
+let currentPage = 1;
+let currentSearchTerm = "castle"
 
 const searchInput = document.getElementById("search");
 const searchButton = document.getElementById("search-btn");
@@ -34,7 +38,10 @@ function searchSets() {
     loadLegoSets(query);
 }
 
-async function loadLegoSets(searchTerm) {
+async function loadLegoSets(searchTerm, page = 1) {
+    currentSearchTerm = searchTerm;
+    currentPage = page;
+
     // to cancel an earlier search when a new search begins
     if (currentController) {
         currentController.abort();
@@ -43,6 +50,7 @@ async function loadLegoSets(searchTerm) {
     const controller = currentController;
 
     legoContainer.replaceChildren();
+    paginationContainer.replaceChildren();
 
     const loadingMessage = document.createElement("p");
     loadingMessage.textContent = "Loading LEGO sets...";
@@ -52,7 +60,7 @@ async function loadLegoSets(searchTerm) {
 
     try {
         const response = await fetch(
-            `/.netlify/functions/searchLegoSets?search=${encodeURIComponent(searchTerm)}`,
+            `/.netlify/functions/searchLegoSets?search=${encodeURIComponent(searchTerm)}&page=${page}`,
             { signal: controller.signal }
         );
 
@@ -85,6 +93,7 @@ console.log("Previous page:", data.previous);
         }
 
         displayApiSets(apiSets);
+        displayPagination(data.count);
 
         console.log("Converted LEGO sets: ", apiSets);
     } catch (error) {
@@ -95,6 +104,7 @@ console.log("Previous page:", data.previous);
         console.error("Unable to load LEGO sets:", error);
 
         legoContainer.replaceChildren();
+
         const errorMessage = document.createElement("p");
         errorMessage.textContent = "Unable to load LEGO sets. Please try again.";
 
@@ -201,6 +211,48 @@ function displayApiSets(sets) {
 
         legoContainer.appendChild(card);
     });
+}
+
+function displayPagination(totalResults) {
+    const pageSize = 18;
+    const totalPages = Math.ceil(totalResults / pageSize);
+
+    if (totalPages === 0) {
+        paginationContainer.replaceChildren();
+        return;
+    }
+
+    paginationContainer.replaceChildren();
+
+    const previousButton = document.createElement("button");
+    previousButton.type = "button";
+    previousButton.textContent = "Previous";
+    previousButton.disabled = currentPage <= 1;
+
+    paginationContainer.appendChild(previousButton);
+
+    const pageIndicator = document.createElement("span");
+    pageIndicator.textContent = `Page ${currentPage} of ${totalPages}`;
+
+    paginationContainer.appendChild(pageIndicator);
+
+    const nextButton = document.createElement("button");
+    nextButton.type = "button";
+    nextButton.textContent = "Next";
+    nextButton.disabled = currentPage >= totalPages;
+    
+    paginationContainer.appendChild(nextButton);
+
+    nextButton.addEventListener("click", function() {
+        loadLegoSets(currentSearchTerm, currentPage + 1);
+    });
+
+    previousButton.addEventListener("click", function() {
+        loadLegoSets(currentSearchTerm, currentPage - 1);
+    });
+
+    console.log("Current page: ", currentPage);
+    console.log("Total pages: ", totalPages);
 }
 
 loadLegoSets("castle");
