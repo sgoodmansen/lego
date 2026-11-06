@@ -27,6 +27,17 @@ function displayCollection() {
 
         card.classList.add("collection-card");
 
+            const cardImage = document.createElement("img");
+            cardImage.classList.add("collection-image");
+
+            if (set.imageUrl) {
+                cardImage.src = set.imageUrl;
+                cardImage.alt = `LEGO set: ${set.name}`;
+            } else {
+                cardImage.src = "images/lego-placeholder.png";
+                cardImage.alt = "LEGO set image unavailable"
+            }
+
             const cardName = document.createElement("h3");
             const nameLink = document.createElement("a");
             nameLink.href = `set-details.html?set=${encodeURIComponent(set.setNumber)}`;
@@ -60,6 +71,7 @@ function displayCollection() {
                 }    
             });
             
+            card.appendChild(cardImage);
             card.appendChild(cardName);
             card.appendChild(cardNumber);
             card.appendChild(cardTheme);
