@@ -7,6 +7,8 @@ let currentController = null;
 let currentPage = 1;
 let currentSearchTerm = "castle"
 
+const loadingStatus = document.querySelector("#loading-status");
+
 const searchInput = document.getElementById("search");
 const searchButton = document.getElementById("search-btn");
 
@@ -56,7 +58,7 @@ async function loadLegoSets(searchTerm, page = 1) {
     loadingMessage.setAttribute("role", "status");
     loadingMessage.classList.add("loading-message");
 
-    legoContainer.appendChild(loadingMessage);
+    loadingStatus.replaceChildren(loadingMessage);
 
     try {
         const response = await fetch(
@@ -94,6 +96,7 @@ console.log("Previous page:", data.previous);
 
         displayApiSets(apiSets);
         displayPagination(data.count);
+        loadingStatus.replaceChildren();
 
         console.log("Converted LEGO sets: ", apiSets);
     } catch (error) {
