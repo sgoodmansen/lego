@@ -568,6 +568,7 @@ a:hover {
     border-radius: 6px;
     font-size: 1rem;
     cursor: pointer;
+    margin-top: auto;
 }
 
 .remove-set-btn:hover {
