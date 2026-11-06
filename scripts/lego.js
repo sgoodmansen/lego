@@ -103,6 +103,7 @@ console.log("Previous page:", data.previous);
         if (error.name === "AbortError" || controller !== currentController) {
             return;
         }
+        loadingStatus.replaceChildren();
 
         console.error("Unable to load LEGO sets:", error);
 
