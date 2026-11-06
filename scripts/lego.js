@@ -1,7 +1,7 @@
 import { addToCollection } from "./collectionStorage.js";
 
 let legoContainer = document.querySelector('#lego-sets');
-const paginationContainer = document.querySelector(#pagination);
+const paginationContainer = document.querySelector("#pagination");
 
 let currentController = null;
 let currentPage = 1;
