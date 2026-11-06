@@ -22,18 +22,35 @@ export function addToCollection(set) {
 
     //search for matching set inside collection
     const existingSet = collection.find(function(item) {
-        return item.setNumber === set.setNumber;
+        const storedNumber = String(item.setNumber);
+        const incomingNumber = String(set.setNumber);
+
+        const normalizedStored = storedNumber.endsWith("-1")
+            ? storedNumber
+            : `${storedNumber}-1`;
+
+        const normalizedIncoming = incomingNumber.endsWith("-1")
+            ? incomingNumber
+            : `${incomingNumber}-1`;
+
+        return normalizedStored === normalizedIncoming;
     });
 
     console.log("Existing set: ", existingSet);
 
     if (existingSet) {
         existingSet.quantity += 1;  //increase quantity by 1 if there is already a set in the collection
+
+        // add an image if the existing entry doesn't have one
+        if (!existingSet.imageUrl && set.imageUrl) {
+            existingSet.imageUrl = set.imageUrl;
+        }
     } else {
         const newSet = {
             setNumber: set.setNumber,
             name: set.name,
             theme: set.theme,
+            imageUrl: set.imageUrl || null,
             quantity: 1
         };
         collection.push(newSet);  //Add newSet to end of the collection array
