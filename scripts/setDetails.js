@@ -100,7 +100,8 @@ async function getSetDetails(setNumber) {
             const selectedSet = {
                 setNumber: data.set_num,
                 name: data.name,
-                theme: data.theme_name
+                theme: data.theme_name,
+                imgUrl: data.set_img_url
             };
 
             addToCollection(selectedSet);

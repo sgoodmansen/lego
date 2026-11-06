@@ -40,11 +40,17 @@ export function addToCollection(set) {
 
     if (existingSet) {
         existingSet.quantity += 1;  //increase quantity by 1 if there is already a set in the collection
+
+        // add an image if the existing entry doesn't have one
+        if (!existingSet.imageUrl && set.imageUrl) {
+            existingSet.imageUrl = set.imageUrl;
+        }
     } else {
         const newSet = {
             setNumber: set.setNumber,
             name: set.name,
             theme: set.theme,
+            imageUrl: set.imageUrl || null,
             quantity: 1
         };
         collection.push(newSet);  //Add newSet to end of the collection array
