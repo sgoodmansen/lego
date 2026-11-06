@@ -258,6 +258,11 @@ function displayPagination(totalResults) {
 
     previousButton.addEventListener("click", function() {
         loadLegoSets(currentSearchTerm, currentPage - 1);
+
+        legoContainer.scrollIntoView({
+            behavior:"smooth",
+            block: "start",
+        });
     });
 
     console.log("Current page: ", currentPage);
