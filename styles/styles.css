@@ -149,6 +149,15 @@ a:hover {
     color: #8c0b10;
 }
 
+/* LOADING MESSAGE */
+.loading-message {
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #0058a0;
+    padding: 2rem;
+}
+
 /* SEARCH SETS */
 .search {
     display: flex;

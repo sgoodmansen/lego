@@ -55,6 +55,7 @@ async function loadLegoSets(searchTerm, page = 1) {
     const loadingMessage = document.createElement("p");
     loadingMessage.textContent = "Loading LEGO sets...";
     loadingMessage.setAttribute("role", "status");
+    loadingMessage.classList.add("loading-message");
 
     legoContainer.appendChild(loadingMessage);
 
