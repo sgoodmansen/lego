@@ -34,7 +34,7 @@ function displayCollection() {
                 cardImage.src = set.imageUrl;
                 cardImage.alt = `LEGO set: ${set.name}`;
             } else {
-                cardImage.src = "images/lego-placeholder.png";
+                cardImage.src = "images/lego-placeholder.svg";
                 cardImage.alt = "LEGO set image unavailable"
             }
 
