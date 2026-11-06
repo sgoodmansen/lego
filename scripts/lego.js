@@ -174,7 +174,8 @@ function displayApiSets(sets) {
                 const selectedSet = {
                     setNumber: set.setNumber,
                     name: set.name,
-                    theme: themeName
+                    theme: themeName,
+                    imageUrl: set.image
                 };
 
                 addToCollection(selectedSet);
