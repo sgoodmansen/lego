@@ -56,5 +56,6 @@ export function addToCollection(set) {
         collection.push(newSet);  //Add newSet to end of the collection array
     }
 
+    console.log("Collection before saving: ", JSON.stringify(collection));
     saveCollection(collection);  //Save collection to localStorage
 }
