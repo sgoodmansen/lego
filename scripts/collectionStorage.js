@@ -41,6 +41,9 @@ export function addToCollection(set) {
     if (existingSet) {
         existingSet.quantity += 1;  //increase quantity by 1 if there is already a set in the collection
 
+        console.log("Exisiting image: ", existingSet.imageUrl);
+        console.log("Incoming image:", set.imageUrl);
+
         // add an image if the existing entry doesn't have one
         if (!existingSet.imageUrl && set.imageUrl) {
             existingSet.imageUrl = set.imageUrl;
