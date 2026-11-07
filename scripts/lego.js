@@ -253,6 +253,8 @@ function displayPagination(totalResults, focusButton = null) {
         previousButton.focus({ preventScroll: true });
         } else if (focusButton === "next" && !previousButton.disabled) {
             previousButton.focus({preventScroll:true});
+        } else if (focusButton === "previous" && !nextButton.disabled) {
+            nextButton.focus({preventScroll:true});
         }
 
     nextButton.addEventListener("click", function() {
