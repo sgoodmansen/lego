@@ -53,7 +53,6 @@ async function loadLegoSets(searchTerm, page = 1, focusButton = null) {
 
     paginationContainer.replaceChildren();
     legoContainer.classList.add("is-loading");
-    debugger;
 
     const loadingMessage = document.createElement("p");
     loadingMessage.textContent = "Loading LEGO sets...";
@@ -288,4 +287,4 @@ function displayPagination(totalResults, focusButton = null) {
     console.log("Total pages: ", totalPages);
 }
 
-loadLegoSets("castle");
+// loadLegoSets("castle");
