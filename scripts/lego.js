@@ -142,7 +142,7 @@ function displayApiSets(sets) {
         return;
     }
 
-    sets.forEach(function(set) {
+    sets.forEach(function(set,index) {
         const card = document.createElement("article");
         card.classList.add("set-card");
 
@@ -152,7 +152,10 @@ function displayApiSets(sets) {
         const image = document.createElement("img");
         image.src = set.image;
         image.alt = set.name;
-        image.loading = "lazy";
+        image.loading = index < 2 ? "eager" : "lazy";
+        if (index === 0) {
+            image.fetchPriority = "high";
+        }
 
         const imageLink = document.createElement("a");
         imageLink.href = `set-details.html?set=${encodeURIComponent(set.setNumber)}`;
