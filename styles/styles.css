@@ -686,6 +686,7 @@ footer {
 
 .footer_logo {
     max-width: 100px;
+    height: auto;
 }
 
 .social img {
