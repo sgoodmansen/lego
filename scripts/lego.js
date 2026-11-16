@@ -53,6 +53,7 @@ async function loadLegoSets(searchTerm, page = 1, focusButton = null) {
 
     paginationContainer.replaceChildren();
     legoContainer.classList.add("is-loading");
+    debugger;
 
     const loadingMessage = document.createElement("p");
     loadingMessage.textContent = "Loading LEGO sets...";
