@@ -52,6 +52,7 @@ async function loadLegoSets(searchTerm, page = 1, focusButton = null) {
     const controller = currentController;
 
     paginationContainer.replaceChildren();
+    legoContainer.classList.add("is-loading");
 
     const loadingMessage = document.createElement("p");
     loadingMessage.textContent = "Loading LEGO sets...";
@@ -115,6 +116,10 @@ console.log("Previous page:", data.previous);
         errorMessage.setAttribute("role", "alert");
 
         legoContainer.appendChild(errorMessage);
+    } finally {
+        if (controller === currentController) {
+            legoContainer.classList.remove("is-loading");
+        }
     }
 }
 

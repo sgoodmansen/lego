@@ -219,6 +219,10 @@ a:hover {
     margin-top: 1.5rem;
 }
 
+#lego-sets.is-loading {
+    min-height: 100vh;
+}
+
 .set-card {
     background: white;
     border-radius: 10px;
