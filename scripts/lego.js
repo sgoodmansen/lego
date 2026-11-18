@@ -254,7 +254,7 @@ function displayPagination(totalResults, focusButton = null) {
     const pageSize = 18;
     const totalPages = Math.ceil(totalResults / pageSize);
 
-    if (totalPages === 0) {
+    if (totalPages <= 1) {
         paginationContainer.replaceChildren();
         return;
     }
