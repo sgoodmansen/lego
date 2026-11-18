@@ -23,8 +23,30 @@ searchInput.addEventListener("input", function(){
 
 // When clear button is clicked
 document.getElementById("clear-btn").addEventListener("click", () => {
+    //Clear the search field and validation
     searchInput.value = "";
-    loadLegoSets("castle");
+    searchInput.setCustomValidity("");
+
+    // Cancel any active API request
+    if(currentController) {
+        currentController.abort();
+        currentController = null;
+    }
+
+    // Reset search state
+    currentSearchTerm = "";
+    currentPage = 1;
+
+    // Remove results, pagination, and loading message
+    legoContainer.replaceChildren();
+    paginationContainer.replaceChildren();
+    loadingStatus.replaceChildren();
+
+    // Remove the loading state
+    legoContainer.classList.remove("is-loading");
+
+    // Return keyboard focus to the search field
+    searchInput.focus();
 });
 
 function searchSets() {
@@ -76,9 +98,9 @@ async function loadLegoSets(searchTerm, page = 1, focusButton = null) {
 
         const data = await response.json();
 
-console.log("Total matching sets:", data.count);
-console.log("Next page:", data.next);
-console.log("Previous page:", data.previous);
+        console.log("Total matching sets:", data.count);
+        console.log("Next page:", data.next);
+        console.log("Previous page:", data.previous);
         
         console.log("Explore API results: ", data.results);
 
