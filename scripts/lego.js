@@ -10,10 +10,12 @@ let currentSearchTerm = "castle"
 const loadingStatus = document.querySelector("#loading-status");
 
 const searchInput = document.getElementById("search");
-const searchButton = document.getElementById("search-btn");
+const searchForm = document.querySelector("#search-form");
 
-// When search button is clicked
-searchButton.addEventListener("click", searchSets);
+searchForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+    searchSets();
+});
 
 searchInput.addEventListener("input", function(){
     searchInput.setCustomValidity("");
@@ -23,13 +25,6 @@ searchInput.addEventListener("input", function(){
 document.getElementById("clear-btn").addEventListener("click", () => {
     searchInput.value = "";
     loadLegoSets("castle");
-});
-
-// When Enter key is pressed in the search field
-searchInput.addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
-        searchSets();
-    }
 });
 
 function searchSets() {

@@ -47,14 +47,14 @@
 <main class="container">
 
     <!-- Search Section -->
-    <div class="search">
-        <input type="text" id="search" placeholder="Search LEGO sets by name, keywords, or theme">
-        
-        <button id="search-btn" aria-label="Search">
-            🔍
-        </button>
-        <button id="clear-btn">✖</button>
-    </div>
+    <form class="search" id="search-form">
+        <label for="search" class="visually-hidden">Search for LEGO sets</label>
+
+        <input type="text" id="search" name="search" placeholder="Search LEGO sets by name, keywords, or theme">
+
+        <button type="submit" id="search-btn" aria-label="Search">🔍</button>
+        <button type="button" id="clear-btn" aria-label="Clear search">✖</button>
+    </form>
 
     <hr>
 
