@@ -100,11 +100,20 @@ cancelSetButton.addEventListener("click", function() {
 
 addSetForm.addEventListener("submit", function(event) {
     event.preventDefault();
+    const setNumberInput = document.querySelector("#set-number");
 
     const setNumber = document.querySelector("#set-number").value.trim();
     const setName = document.querySelector("#set-name").value.trim();
     const setTheme = document.querySelector("#set-theme").value.trim();
     const setQuantity = Number(document.querySelector("#set-quantity").value);
+
+    if (setNumber === "") {
+        setNumberInput.setCustomValidity("Please enter a valid LEGO set number");
+        setNumberInput.reportValidity();
+        return;
+    }
+
+    setNumberInput.setCustomValidity("");
 
     if (
         setNumber === "" ||
