@@ -175,8 +175,28 @@ function displayApiSets(sets) {
         const message = document.createElement("p");
         message.textContent = "Try a different keyword, theme, or LEGO set number";
 
+        const suggestions = document.createElement("div");
+        suggestions.classList.add("search-suggestions");
+
+        const suggestedSearches = ["Star Wars", "Technic", "Harry Potter", "42179"];
+
+        suggestedSearches.forEach(function(term) {
+            const button = document.createElement("button");
+            button.type = "button";
+            button.textContent = term;
+
+            button.addEventListener("click", function() {
+                searchInput.value = term;
+                searchInput.setCustomValidity("");
+                loadLegoSets(term);
+            });
+
+            suggestions.appendChild(button);
+        });
+
         emptyState.appendChild(heading);
         emptyState.appendChild(message);
+        emptyState.appendChild(suggestions);
 
         legoContainer.appendChild(emptyState);
         return;
