@@ -66,7 +66,7 @@ function searchSets() {
     loadLegoSets(query);
 }
 
-async function loadLegoSets(searchTerm, page = 1, focusButton = null) {
+async function loadLegoSets(searchTerm, page = 1, focusButton = null, focusFirstResult = false) {
     currentSearchTerm = searchTerm;
     currentPage = page;
 
@@ -123,6 +123,14 @@ async function loadLegoSets(searchTerm, page = 1, focusButton = null) {
         displayApiSets(apiSets);
         displayPagination(data.count, focusButton);
         loadingStatus.replaceChildren();
+
+        if (focusFirstResult && apiSets.length > 0) {
+            const firstResultLink = legoContainer.querySelector(".set-card a");
+
+            if (firstResultLink) {
+                firstResultLink.focus({preventScroll:true});
+            }
+        }
 
         console.log("Converted LEGO sets: ", apiSets);
     } catch (error) {
@@ -188,7 +196,7 @@ function displayApiSets(sets) {
             button.addEventListener("click", function() {
                 searchInput.value = term;
                 searchInput.setCustomValidity("");
-                loadLegoSets(term);
+                loadLegoSets(term, 1, null, true);
             });
 
             suggestions.appendChild(button);
