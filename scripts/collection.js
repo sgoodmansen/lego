@@ -98,9 +98,14 @@ cancelSetButton.addEventListener("click", function() {
     addSetForm.hidden = true;
 });
 
+const setNumberInput = document.querySelector("#set-number");
+
+setNumberInput.addEventListener("input", function() {
+    setNumberInput.setCustomValidity("");
+});
+
 addSetForm.addEventListener("submit", function(event) {
     event.preventDefault();
-    const setNumberInput = document.querySelector("#set-number");
 
     const setNumber = document.querySelector("#set-number").value.trim();
     const setName = document.querySelector("#set-name").value.trim();
