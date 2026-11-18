@@ -247,6 +247,26 @@ a:hover {
     border: 0;
 }
 
+.search-suggestions button {
+    padding: 0.65rem 1rem;
+    background-color: #0058a0;
+    color: white;
+    border: 2px solid #0058a0;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.search-suggestions button:hover {
+    background-color: #003f73;
+    border-color: #003f73;
+}
+
+.search-suggestions button:focus-visible {
+    outline: 3px solid #005fcc;
+    outline-offset: 3px;
+}
+ 
 /* LEGO-SETS CARD */
 #lego-sets {
     display: grid;
