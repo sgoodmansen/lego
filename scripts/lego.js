@@ -15,6 +15,10 @@ const searchButton = document.getElementById("search-btn");
 // When search button is clicked
 searchButton.addEventListener("click", searchSets);
 
+searchInput.addEventListener("input", function(){
+    searchInput.setCustomValidity("");
+})
+
 // When clear button is clicked
 document.getElementById("clear-btn").addEventListener("click", () => {
     searchInput.value = "";
@@ -34,9 +38,14 @@ function searchSets() {
     console.log("Searching Rebrickable for: ", query);
 
     if (query === "") {
+        searchInput.setCustomValidity (
+            "Please enter a LEGO set name or number."
+        );
+        searchInput.reportValidity();  //displays the validation message to the user
         return;
     }
 
+    searchInput.setCustomValidity("");  //clears the custom error message when input is valid
     loadLegoSets(query);
 }
 
