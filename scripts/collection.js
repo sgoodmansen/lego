@@ -100,6 +100,7 @@ cancelSetButton.addEventListener("click", function() {
 
 const setNumberInput = document.querySelector("#set-number");
 const setNameInput = document.querySelector("#set-name");
+const setThemeInput = document.querySelector("#set-theme");
 
 setNumberInput.addEventListener("input", function() {
     setNumberInput.setCustomValidity("");
@@ -107,6 +108,10 @@ setNumberInput.addEventListener("input", function() {
 
 setNameInput.addEventListener("input", function() {
     setNameInput.setCustomValidity("");
+});
+
+setThemeInput.addEventListener("input", function() {
+    setThemeInput.setCustomValidity("");
 });
 
 addSetForm.addEventListener("submit", function(event) {
@@ -129,8 +134,15 @@ addSetForm.addEventListener("submit", function(event) {
         return;
     }
 
+    if (setTheme === "") {
+        setThemeInput.setCustomValidity("Please enter a valid LEGO theme");
+        setThemeInput.reportValidity();
+        return;
+    }
+
     setNumberInput.setCustomValidity("");
     setNameInput.setCustomValidity("");
+    setThemeInput.setCustomValidity("");
 
     if (
         setNumber === "" ||
