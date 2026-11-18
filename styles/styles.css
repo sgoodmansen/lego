@@ -177,6 +177,12 @@ a:hover {
     }
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .loading-message::before {
+        animation: none;
+    }
+}
+
 /* SEARCH SETS */
 .search {
     display: flex;
