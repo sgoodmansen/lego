@@ -144,14 +144,7 @@ addSetForm.addEventListener("submit", function(event) {
     setNameInput.setCustomValidity("");
     setThemeInput.setCustomValidity("");
 
-    if (
-        setNumber === "" ||
-        setName === "" ||
-        setTheme === "" ||
-        !Number.isInteger(setQuantity) ||
-        setQuantity < 1
-    ) {
-        alert("Please enter valid information for all fields.");
+    if (!Number.isInteger(setQuantity) || setQuantity < 1) {
         return;
     }
 
