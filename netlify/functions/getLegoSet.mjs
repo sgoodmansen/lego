@@ -1,5 +1,5 @@
 // Retrieve LEGO set information from the Rebrickable API.
-export default async function handler(request, context) {
+export default async function handler(request) {
     try {
         // Retrieve the API key from Netlify's environment variables.
         const apiKey = process.env.REBRICKABLE_API_KEY;
