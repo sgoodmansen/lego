@@ -166,9 +166,19 @@ function displayApiSets(sets) {
     legoContainer.innerHTML = "";
 
     if (sets.length === 0) {
+        const emptyState = document.createElement("div");
+        emptyState.classList.add("empty-state");
+
+        const heading = document.createElement("h2");
+        heading.textContent = "No LEGO sets found";
+
         const message = document.createElement("p");
-        message.textContent = "No LEGO sets found.";
-        legoContainer.appendChild(message);
+        message.textContent = "Try a different keyword, theme, or LEGO set number";
+
+        emptyState.appendChild(heading);
+        emptyState.appendChild(message);
+
+        legoContainer.appendChild(emptyState);
         return;
     }
 
