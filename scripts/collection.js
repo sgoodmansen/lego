@@ -99,9 +99,14 @@ cancelSetButton.addEventListener("click", function() {
 });
 
 const setNumberInput = document.querySelector("#set-number");
+const setNameInput = document.querySelector("#set-name");
 
 setNumberInput.addEventListener("input", function() {
     setNumberInput.setCustomValidity("");
+});
+
+setNameInput.addEventListener("input", function() {
+    setNameInput.setCustomValidity("");
 });
 
 addSetForm.addEventListener("submit", function(event) {
@@ -118,7 +123,14 @@ addSetForm.addEventListener("submit", function(event) {
         return;
     }
 
+    if (setName === "") {
+        setNameInput.setCustomValidity("Please enter a valid LEGO set name");
+        setNameInput.reportValidity();
+        return;
+    }
+
     setNumberInput.setCustomValidity("");
+    setNameInput.setCustomValidity("");
 
     if (
         setNumber === "" ||
