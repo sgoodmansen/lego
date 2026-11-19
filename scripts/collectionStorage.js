@@ -24,6 +24,13 @@ function normalizeSetNumber(setNumber) {
         : `${number}-1`;
 }
 
+export function findSetInCollection(setNumber) {
+    const collection = getCollection();
+
+    return collection.find(function(item) {
+        return normalizeSetNumber(item.setNumber) === normalizeSetNumber(setNumber);
+    })
+}
 
 // Add a LEGO set to the saved collection
 // Increase quantity if already exists.

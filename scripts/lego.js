@@ -1,4 +1,4 @@
-import { addToCollection } from "./collectionStorage.js";
+import { addToCollection, findSetInCollection } from "./collectionStorage.js";
 
 let legoContainer = document.querySelector('#lego-sets');
 const paginationContainer = document.querySelector("#pagination");
@@ -214,6 +214,8 @@ function displayApiSets(sets) {
         const card = document.createElement("article");
         card.classList.add("set-card");
 
+        const existingSet = findSetInCollection(set.setNumber);
+
         const cardInfo = document.createElement("div");
         cardInfo.classList.add("set-info");
 
@@ -242,16 +244,29 @@ function displayApiSets(sets) {
         const pieces = document.createElement("p");
         pieces.textContent = `Pieces: ${set.pieces.toLocaleString()}`;
 
+        const collectionStatus = document.createElement("p");
+        collectionStatus.classList.add("collection-status");
+
+        if (existingSet) {
+            collectionStatus.textContent = `In My Collection · Qty: ${existingSet.quantity}`;
+        }
+
         card.appendChild(imageLink);
 
         cardInfo.appendChild(name);
         cardInfo.appendChild(number);
         cardInfo.appendChild(pieces);
 
+        if (existingSet) {
+            cardInfo.appendChild(collectionStatus);
+        }
+
         const addButton = document.createElement("button");
 
         addButton.type="button";
-        addButton.textContent = "Add to Collection";
+        addButton.textContent = existingSet
+            ? "Add Another"
+            : "Add to Collection";
         addButton.classList.add("add-to-collection-btn");
 
         addButton.addEventListener("click", async function() {
@@ -269,8 +284,17 @@ function displayApiSets(sets) {
 
                 addToCollection(selectedSet);
                 addButton.textContent = "Added to Collection!";
-
                 console.log("Added to collection: ", selectedSet);
+
+                const updatedSet = findSetInCollection(set.setNumber);
+
+                if (updatedSet) {
+                    collectionStatus.textContent = `In My Collection · Qty: ${existingSet.quantity}`;
+
+                    if (!collectionStatus.isConnected) {
+                        cardInfo.insertBefore(collectionStatus, addButton);
+                    }
+                }
 
             } catch (error) {
                 console.error("Unable to add LEGO set: ", error);
