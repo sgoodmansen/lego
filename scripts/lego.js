@@ -287,6 +287,8 @@ function displayApiSets(sets) {
                 console.log("Added to collection: ", selectedSet);
 
                 const updatedSet = findSetInCollection(set.setNumber);
+                console.log("Updated collection set: ", updatedSet);
+                console.log("Updated quantity: ", updatedSet?.quantity);
 
                 if (updatedSet) {
                     collectionStatus.textContent = `In My Collection · Qty: ${existingSet.quantity}`;
