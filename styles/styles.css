@@ -346,6 +346,7 @@ a:hover {
     font-size: 0.9rem;
     font-weight: 600;
     align-self: flex-start;
+    margin-bottom: 0.75rem;
 }
 
 .add-to-collection-btn {
