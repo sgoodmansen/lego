@@ -291,7 +291,7 @@ function displayApiSets(sets) {
                 console.log("Updated quantity: ", updatedSet?.quantity);
 
                 if (updatedSet) {
-                    collectionStatus.textContent = `In My Collection · Qty: ${existingSet.quantity}`;
+                    collectionStatus.textContent = `In My Collection · Qty: ${updatedSet.quantity}`;
 
                     if (!collectionStatus.isConnected) {
                         cardInfo.insertBefore(collectionStatus, addButton);
