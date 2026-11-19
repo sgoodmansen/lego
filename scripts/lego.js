@@ -283,17 +283,12 @@ function displayApiSets(sets) {
                 };
 
                 addToCollection(selectedSet);
-                addButton.textContent = "Added to Collection!";
-                console.log("Added to collection: ", selectedSet);
+                addButton.textContent = "Add Another";
 
                 const updatedSet = findSetInCollection(set.setNumber);
-                console.log("Updated collection set: ", updatedSet);
-                console.log("Updated quantity: ", updatedSet?.quantity);
 
                 if (updatedSet) {
                     collectionStatus.textContent = `In My Collection · Qty: ${updatedSet.quantity}`;
-                    console.log("Indicator text:", collectionStatus.textContent);
-                    console.log("Indicator connected:", collectionStatus.isConnected);
 
                     if (!collectionStatus.isConnected) {
                         cardInfo.insertBefore(collectionStatus, addButton);
