@@ -15,6 +15,16 @@ export function saveCollection(collection) {
     localStorage.setItem("legoCollection", JSON.stringify(collection));
 }
 
+// accepts a LEGO set number and converts it to a consistent format for comparison
+function normalizeSetNumber(setNumber) {
+    const number = String(setNumber);
+
+    return number.endsWith("-1")
+        ? number
+        : `${number}-1`;
+}
+
+
 // Add a LEGO set to the saved collection
 // Increase quantity if already exists.
 export function addToCollection(set) {
@@ -22,18 +32,7 @@ export function addToCollection(set) {
 
     //search for matching set inside collection
     const existingSet = collection.find(function(item) {
-        const storedNumber = String(item.setNumber);
-        const incomingNumber = String(set.setNumber);
-
-        const normalizedStored = storedNumber.endsWith("-1")
-            ? storedNumber
-            : `${storedNumber}-1`;
-
-        const normalizedIncoming = incomingNumber.endsWith("-1")
-            ? incomingNumber
-            : `${incomingNumber}-1`;
-
-        return normalizedStored === normalizedIncoming;
+        return normalizeSetNumber(item.setNumber) === normalizeSetNumber(set.setNumber);
     });
 
     console.log("Existing set: ", existingSet);
