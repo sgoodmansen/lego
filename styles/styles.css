@@ -330,7 +330,8 @@ a:hover {
     flex: 1;
 }
 
-.set-info h2 {
+.set-info h2,
+.collection-card h3 {
     margin-top: 0;
     margin-bottom: 0.75rem;
     font-size: clamp(1.25rem, 2vw, 1.6rem);
