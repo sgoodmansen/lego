@@ -338,6 +338,16 @@ a:hover {
     overflow-wrap: anywhere;
 }
 
+.collection-status {
+    background-color: #e6f4ea;
+    color: #1b5e20;
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    align-self: flex-start;
+}
+
 .add-to-collection-btn {
     padding: 10px 16px;
     background-color: #0058a0;
