@@ -347,6 +347,7 @@ a:hover {
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.2s ease;
+    margin-top: auto;
 }
 
 .add-to-collection-btn:hover:not(:disabled) {
