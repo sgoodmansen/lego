@@ -339,6 +339,10 @@ a:hover {
     overflow-wrap: anywhere;
 }
 
+.set-info h2 {
+    font-size: 1.25rem;
+}
+
 .collection-status {
     background-color: #e6f4ea;
     color: #1b5e20;
