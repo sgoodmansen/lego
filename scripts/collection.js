@@ -1,8 +1,8 @@
-import { getCollection, saveCollection } from "./collectionStorage.js";
+import { getCollection, saveCollection, addToCollection } from "./collectionStorage.js";
 
 // Retrieve the visitor's saved LEGO collection.
 // if no collection exists, start with an empty array
-const myCollection = getCollection();
+let myCollection = getCollection();
 
 const collectionList = document.querySelector("#collection-list");
 
@@ -155,18 +155,8 @@ addSetForm.addEventListener("submit", function(event) {
         quantity: setQuantity
     };
 
-    const existingSet = myCollection.find(function(set) {
-        return set.setNumber === setNumber;
-    });
-
-    if (existingSet) {
-        existingSet.quantity += setQuantity;
-    } else {
-        myCollection.push(newSet);
-    }
-    
-
-    saveCollection(myCollection); // Save collection to localStorage
+    addToCollection(newSet);
+    myCollection = getCollection();
 
     displayCollection();
     addSetForm.reset();

@@ -29,6 +29,7 @@ function normalizeSetNumber(setNumber) {
 // Increase quantity if already exists.
 export function addToCollection(set) {
     const collection = getCollection();  //retrieve collection from localStorage
+    const quantityToAdd = set.quantity ?? 1;  //increase quantity by stored value or 1 if value is null
 
     //search for matching set inside collection
     const existingSet = collection.find(function(item) {
@@ -38,7 +39,7 @@ export function addToCollection(set) {
     console.log("Existing set: ", existingSet);
 
     if (existingSet) {
-        existingSet.quantity += 1;  //increase quantity by 1 if there is already a set in the collection
+        existingSet.quantity += quantityToAdd;
 
         // add an image if the existing entry doesn't have one
         if (!existingSet.imageUrl && set.imageUrl) {
