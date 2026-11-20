@@ -72,23 +72,23 @@ async function getSetDetails(setNumber) {
         setPieces.textContent = `Pieces: ${data.num_parts.toLocaleString()}`;
         infoContainer.appendChild(setPieces);
 
-        // LEGO BUILDING INSTRUCTIONS
+        // LEGO SET THEME NAME
+        const setTheme = document.createElement("p");
+        setTheme.textContent = `Theme: ${data.theme_name}`;
+        infoContainer.appendChild(setTheme);
+
+         // LEGO BUILDING INSTRUCTIONS
         const legoNumber = data.set_num.split("-")[0];
 
         const instructionsLink = document.createElement("a");
         instructionsLink.href = `https://www.lego.com/en-us/service/building-instructions/${encodeURIComponent(legoNumber)}`;
-        
+
         instructionsLink.textContent = "Building Instructions — LEGO.com ↗";
         instructionsLink.setAttribute("aria-label", "Building Instructions on LEGO.com (opens in a new tab)");
         instructionsLink.target = "_blank";
         instructionsLink.rel = "noopener noreferrer";
 
         infoContainer.appendChild(instructionsLink);
-
-        // LEGO SET THEME NAME
-        const setTheme = document.createElement("p");
-        setTheme.textContent = `Theme: ${data.theme_name}`;
-        infoContainer.appendChild(setTheme);
 
         // Create the Add to My Collection button
         const addButton = document.createElement("button");
