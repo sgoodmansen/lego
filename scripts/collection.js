@@ -57,7 +57,7 @@ function displayCollection() {
             const addButton = document.createElement("button");
             addButton.type = "button";
             addButton.textContent = "Add Another";
-            addButton.classList.add("add-another-btn");
+            addButton.classList.add("button", "add-another-btn");
 
             addButton.addEventListener("click", function() {
                 addToCollection(set);
