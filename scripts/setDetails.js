@@ -78,7 +78,8 @@ async function getSetDetails(setNumber) {
         const instructionsLink = document.createElement("a");
         instructionsLink.href = `https://www.lego.com/en-us/service/building-instructions/${encodeURIComponent(legoNumber)}`;
         
-        instructionsLink.textContent = "View Building Instructions";
+        instructionsLink.textContent = "Building Instructions — LEGO.com ↗";
+        instructionsLink.setAttribute("aria-label", "Building Instructions on LEGO.com (opens in a new tab)");
         instructionsLink.target = "_blank";
         instructionsLink.rel = "noopener noreferrer";
 
