@@ -199,7 +199,7 @@ a:hover {
 /* SHARED BUTTON STYLES */
 .search-suggestions button,
 #pagination button,
-#add-set-btn,
+#show-add-set-form-btn,
 .add-to-collection-btn {
     background-color: #0058a0;
     color: white;
@@ -211,20 +211,20 @@ a:hover {
 
 .search-suggestions button:hover,
 #pagination button:not(:disabled):hover,
-#add-set-btn:hover,
+#show-add-set-form-btn:hover,
 .add-to-collection-btn:hover:not(:disabled) {
     background-color: #003f73;
 }
 
 .search-suggestions button:hover,
 #pagination button:not(:disabled):hover,
-#add-set-btn:hover {
+#show-add-set-form-btn:hover {
     border-color: #003f73;
 }
 
 .search-suggestions button:focus-visible,
 #pagination button:focus-visible,
-#add-set-btn:focus-visible,
+#show-add-set-form-btn:focus-visible,
 .add-to-collection-btn:focus-visible {
     outline: 3px solid #005fcc;
     outline-offset: 3px;
@@ -403,8 +403,6 @@ a:hover {
     flex: 1;
 }
 
-
-
 .collection-status {
     background-color: #e6f4ea;
     color: #1b5e20;
@@ -434,13 +432,6 @@ a:hover {
     object-fit: contain;
     padding: 10px;
     background: #fff;
-}
-
-/* THIS CAN BE REMOVED */
-.rating {
-    color: gold;
-    font-size: 1.1rem;
-    margin-top: 0.5rem;
 }
 
 /* PAGINATION CONTROLS */
@@ -545,7 +536,7 @@ a:hover {
     outline-offset: 3px;
 }
 
-#add-set-btn {
+#show-add-set-form-btn {
     padding: 10px 16px;
 }
 

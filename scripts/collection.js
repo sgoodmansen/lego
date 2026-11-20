@@ -102,11 +102,11 @@ function displayCollection() {
 
 displayCollection();
 
-const addSetButton = document.querySelector("#add-set-btn");
+const showAddSetFormButton = document.querySelector("#show-add-set-form-btn");
 const cancelSetButton = document.querySelector("#cancel-set-btn");
 const addSetForm = document.querySelector("#add-set-form");
 
-addSetButton.addEventListener("click", function() {
+showAddSetFormButton.addEventListener("click", function() {
     addSetForm.hidden = false;
 });
 
