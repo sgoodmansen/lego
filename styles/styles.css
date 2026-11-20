@@ -116,6 +116,8 @@ nav a:active {
   width: 100%;
   display: block;
   filter: brightness(80%);
+  max-height: 500px;
+  object-fit: cover;
 }
 
 .hero-title {
