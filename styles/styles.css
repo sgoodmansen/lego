@@ -132,6 +132,9 @@ nav a:active {
 
 /* FEATURES */
 main {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
   padding: 1rem;
 }
 
@@ -840,11 +843,6 @@ footer {
 @media (min-width: 1024px) {
   .hero-title {
     font-size: 5rem;
-  }
-
-  main {
-    max-width: 1200px;
-    margin: auto;
   }
 
   #lego-sets {
