@@ -72,6 +72,18 @@ async function getSetDetails(setNumber) {
         setPieces.textContent = `Pieces: ${data.num_parts.toLocaleString()}`;
         infoContainer.appendChild(setPieces);
 
+        // LEGO BUILDING INSTRUCTIONS
+        const legoNumber = data.set_num.split("-")[0];
+
+        const instructionsLink = document.createElement("a");
+        instructionsLink.href = `https://www.lego.com/en-us/service/building-instructions/${encodeURIComponent(legoNumber)}`;
+        
+        instructionsLink.textContent = "View Building Instructions";
+        instructionsLink.target = "_blank";
+        instructionsLink.rel = "noopener noreferrer";
+
+        infoContainer.appendChild(instructionsLink);
+
         // LEGO SET THEME NAME
         const setTheme = document.createElement("p");
         setTheme.textContent = `Theme: ${data.theme_name}`;
