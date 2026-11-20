@@ -15,25 +15,49 @@ export function saveCollection(collection) {
     localStorage.setItem("legoCollection", JSON.stringify(collection));
 }
 
+// accepts a LEGO set number and converts it to a consistent format for comparison
+function normalizeSetNumber(setNumber) {
+    const number = String(setNumber);
+
+    return number.endsWith("-1")
+        ? number
+        : `${number}-1`;
+}
+
+export function findSetInCollection(setNumber) {
+    const collection = getCollection();
+
+    return collection.find(function(item) {
+        return normalizeSetNumber(item.setNumber) === normalizeSetNumber(setNumber);
+    })
+}
+
 // Add a LEGO set to the saved collection
 // Increase quantity if already exists.
 export function addToCollection(set) {
     const collection = getCollection();  //retrieve collection from localStorage
+    const quantityToAdd = set.quantity ?? 1;  //increase quantity by stored value or 1 if value is null
 
     //search for matching set inside collection
     const existingSet = collection.find(function(item) {
-        return item.setNumber === set.setNumber;
+        return normalizeSetNumber(item.setNumber) === normalizeSetNumber(set.setNumber);
     });
 
     console.log("Existing set: ", existingSet);
 
     if (existingSet) {
-        existingSet.quantity += 1;  //increase quantity by 1 if there is already a set in the collection
+        existingSet.quantity += quantityToAdd;
+
+        // add an image if the existing entry doesn't have one
+        if (!existingSet.imageUrl && set.imageUrl) {
+            existingSet.imageUrl = set.imageUrl;
+        }
     } else {
         const newSet = {
             setNumber: set.setNumber,
             name: set.name,
             theme: set.theme,
+            imageUrl: set.imageUrl || null,
             quantity: 1
         };
         collection.push(newSet);  //Add newSet to end of the collection array

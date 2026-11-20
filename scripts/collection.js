@@ -1,10 +1,16 @@
-import { getCollection, saveCollection } from "./collectionStorage.js";
+import { getCollection, saveCollection, addToCollection } from "./collectionStorage.js";
 
 // Retrieve the visitor's saved LEGO collection.
 // if no collection exists, start with an empty array
-const myCollection = getCollection();
+let myCollection = getCollection();
 
 const collectionList = document.querySelector("#collection-list");
+
+let setToRemove = null;
+
+const removeDialog = document.querySelector("#remove-set-dialog");
+const cancelRemoveButton = document.querySelector("#cancel-remove-btn");
+const confirmRemoveButton = document.querySelector("#confirm-remove-btn");
 
 function displayCollection() {
     collectionList.innerHTML = "";
@@ -21,8 +27,23 @@ function displayCollection() {
 
         card.classList.add("collection-card");
 
+            const cardImage = document.createElement("img");
+            cardImage.classList.add("collection-image");
+
+            if (set.imageUrl) {
+                cardImage.src = set.imageUrl;
+                cardImage.alt = `LEGO set: ${set.name}`;
+            } else {
+                cardImage.src = "images/lego-placeholder.svg";
+                cardImage.alt = "LEGO set image unavailable"
+            }
+
             const cardName = document.createElement("h3");
-            cardName.textContent = set.name;
+            const nameLink = document.createElement("a");
+            nameLink.href = `set-details.html?set=${encodeURIComponent(set.setNumber)}`;
+            nameLink.textContent = set.name;
+
+            cardName.appendChild(nameLink);
 
             const cardNumber = document.createElement("p");
             cardNumber.textContent = `Set Number: ${set.setNumber}`;
@@ -33,33 +54,46 @@ function displayCollection() {
             const cardQuantity = document.createElement("p");
             cardQuantity.textContent = `Quantity: ${set.quantity}`;
 
+            const addButton = document.createElement("button");
+            addButton.type = "button";
+            addButton.textContent = "Add Another";
+            addButton.classList.add("button", "add-another-btn");
+
+            addButton.addEventListener("click", function() {
+                addToCollection(set);
+                myCollection = getCollection();
+                displayCollection();
+            });
+
             const removeButton = document.createElement("button");
             removeButton.type = "button";
-            removeButton.textContent = "Remove One";
+            removeButton.textContent = set.quantity > 1 ? "Remove One" : "Remove Set";
             removeButton.classList.add("remove-set-btn");
 
             removeButton.addEventListener("click", function() {
                 if (set.quantity > 1) {
                     set.quantity -= 1;
+
+                    saveCollection(myCollection); // Save collection to localStorage
+                    displayCollection();
                 } else { 
-                    const index = myCollection.findIndex(function(item) {
-                        return item.setNumber === set.setNumber;
-                    });
-
-                    if (index !== -1) {
-                        myCollection.splice(index, 1);
-                    }
-                }
-
-                saveCollection(myCollection); // Save collection to localStorage
-                displayCollection();
+                    setToRemove = set;
+                    removeDialog.showModal();
+                }    
             });
             
+            card.appendChild(cardImage);
             card.appendChild(cardName);
             card.appendChild(cardNumber);
             card.appendChild(cardTheme);
             card.appendChild(cardQuantity);
-            card.appendChild(removeButton);
+
+            const buttonContainer = document.createElement("div");
+            buttonContainer.classList.add("collection-actions");
+            buttonContainer.appendChild(addButton);
+            buttonContainer.appendChild(removeButton);
+            
+            card.appendChild(buttonContainer);
 
         collectionList.appendChild(card);
         
@@ -68,16 +102,33 @@ function displayCollection() {
 
 displayCollection();
 
-const addSetButton = document.querySelector("#add-set-btn");
+const showAddSetFormButton = document.querySelector("#show-add-set-form-btn");
 const cancelSetButton = document.querySelector("#cancel-set-btn");
 const addSetForm = document.querySelector("#add-set-form");
 
-addSetButton.addEventListener("click", function() {
+showAddSetFormButton.addEventListener("click", function() {
     addSetForm.hidden = false;
 });
 
 cancelSetButton.addEventListener("click", function() {
+    addSetForm.reset();
     addSetForm.hidden = true;
+});
+
+const setNumberInput = document.querySelector("#set-number");
+const setNameInput = document.querySelector("#set-name");
+const setThemeInput = document.querySelector("#set-theme");
+
+setNumberInput.addEventListener("input", function() {
+    setNumberInput.setCustomValidity("");
+});
+
+setNameInput.addEventListener("input", function() {
+    setNameInput.setCustomValidity("");
+});
+
+setThemeInput.addEventListener("input", function() {
+    setThemeInput.setCustomValidity("");
 });
 
 addSetForm.addEventListener("submit", function(event) {
@@ -88,14 +139,29 @@ addSetForm.addEventListener("submit", function(event) {
     const setTheme = document.querySelector("#set-theme").value.trim();
     const setQuantity = Number(document.querySelector("#set-quantity").value);
 
-    if (
-        setNumber === "" ||
-        setName === "" ||
-        setTheme === "" ||
-        !Number.isInteger(setQuantity) ||
-        setQuantity < 1
-    ) {
-        alert("Please enter valid information for all fields.");
+    if (setNumber === "") {
+        setNumberInput.setCustomValidity("Please enter a valid LEGO set number");
+        setNumberInput.reportValidity();
+        return;
+    }
+
+    if (setName === "") {
+        setNameInput.setCustomValidity("Please enter a valid LEGO set name");
+        setNameInput.reportValidity();
+        return;
+    }
+
+    if (setTheme === "") {
+        setThemeInput.setCustomValidity("Please enter a valid LEGO theme");
+        setThemeInput.reportValidity();
+        return;
+    }
+
+    setNumberInput.setCustomValidity("");
+    setNameInput.setCustomValidity("");
+    setThemeInput.setCustomValidity("");
+
+    if (!Number.isInteger(setQuantity) || setQuantity < 1) {
         return;
     }
 
@@ -106,21 +172,43 @@ addSetForm.addEventListener("submit", function(event) {
         quantity: setQuantity
     };
 
-    const existingSet = myCollection.find(function(set) {
-        return set.setNumber === setNumber;
-    });
-
-    if (existingSet) {
-        existingSet.quantity += setQuantity;
-    } else {
-        myCollection.push(newSet);
-    }
-    
-
-    saveCollection(myCollection); // Save collection to localStorage
+    addToCollection(newSet);
+    myCollection = getCollection();
 
     displayCollection();
     addSetForm.reset();
     addSetForm.hidden = true;
 
 });
+
+cancelRemoveButton.addEventListener("click", function() {
+    removeDialog.close();
+})
+
+confirmRemoveButton.addEventListener("click", function() {
+    console.log("Confirm Remove Set button clicked");
+
+    // check if set was selected
+    if (setToRemove === null) {
+        return;
+    }
+
+    //find the selected set
+    const index = myCollection.findIndex(function(item) {
+        return String(item.setNumber) === String(setToRemove.setNumber);
+    });
+
+    // remove set and save
+    if (index !== -1) {
+        myCollection.splice(index, 1);
+        saveCollection(myCollection);
+    }
+
+    setToRemove = null;    //reset variable
+    removeDialog.close();  //close modal dialog
+    displayCollection();   //refresh collection list
+})
+
+removeDialog.addEventListener("close", function() {
+    setToRemove = null;
+})
