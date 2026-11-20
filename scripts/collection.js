@@ -59,6 +59,12 @@ function displayCollection() {
             addButton.textContent = "Add Another";
             addButton.classList.add("add-another-btn");
 
+            addButton.addEventListener("click", function() {
+                addToCollection(set);
+                myCollection = getCollection();
+                displayCollection();
+            });
+
             const removeButton = document.createElement("button");
             removeButton.type = "button";
             removeButton.textContent = set.quantity > 1 ? "Remove One" : "Remove Set";
