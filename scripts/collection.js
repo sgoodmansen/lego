@@ -87,8 +87,13 @@ function displayCollection() {
             card.appendChild(cardNumber);
             card.appendChild(cardTheme);
             card.appendChild(cardQuantity);
-            card.appendChild(addButton);
-            card.appendChild(removeButton);
+
+            const buttonContainer = document.createElement("div");
+            buttonContainer.classList.add("collection-actions");
+            buttonContainer.appendChild(addButton);
+            buttonContainer.appendChild(removeButton);
+            
+            card.appendChild(buttonContainer);
 
         collectionList.appendChild(card);
         
