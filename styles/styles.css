@@ -207,6 +207,12 @@ a:hover {
     cursor: pointer;
 }
 
+.search-suggestions button:hover,
+#pagination button:not(:disabled):hover {
+    background-color: #003f73;
+    border-color: #003f73;
+}
+
 /* SEARCH SETS */
 .search {
     display: flex;
@@ -334,11 +340,6 @@ a:hover {
     padding: 0.65rem 1rem;
 }
 
-.search-suggestions button:hover {
-    background-color: #003f73;
-    border-color: #003f73;
-}
-
 .search-suggestions button:focus-visible {
     outline: 3px solid #005fcc;
     outline-offset: 3px;
@@ -463,11 +464,6 @@ a:hover {
     color: #777;
     border-color: #ccc;
     cursor: not-allowed;
-}
-
-#pagination button:not(:disabled):hover {
-    background-color: #003f73;
-    border-color: #003f73;
 }
 
 #pagination button:focus-visible {
