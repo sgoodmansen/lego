@@ -54,6 +54,11 @@ function displayCollection() {
             const cardQuantity = document.createElement("p");
             cardQuantity.textContent = `Quantity: ${set.quantity}`;
 
+            const addButton = document.createElement("button");
+            addButton.type = "button";
+            addButton.textContent = "Add Another";
+            addButton.classList.add("add-another-btn");
+
             const removeButton = document.createElement("button");
             removeButton.type = "button";
             removeButton.textContent = set.quantity > 1 ? "Remove One" : "Remove Set";
@@ -76,6 +81,7 @@ function displayCollection() {
             card.appendChild(cardNumber);
             card.appendChild(cardTheme);
             card.appendChild(cardQuantity);
+            card.appendChild(addButton);
             card.appendChild(removeButton);
 
         collectionList.appendChild(card);
