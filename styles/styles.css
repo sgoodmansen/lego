@@ -507,37 +507,6 @@ a:hover {
 }
 
 /* ADD LEGO SET FORM */
-.collection-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    align-items: center;
-    margin-top: auto;
-}
-
-.collection-actions .button {
-    display: inline-block;
-    padding: 10px 16px;
-    background-color: white;
-    color: #0058a0;
-    border: 2px solid #0058a0;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-weight: bold;
-    text-decoration: none;
-    transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.collection-actions .button:hover {
-    background-color: #0058a0;
-    color: white;
-}
-
-.collection-actions .button:focus-visible {
-    outline: 3px solid #005fcc;
-    outline-offset: 3px;
-}
-
 .add-collection-btn {
     background-color: #0058a0;
     color: white;
@@ -664,6 +633,37 @@ a:hover {
     height: 200px;
     object-fit: contain;
     margin-bottom: 1rem;
+}
+
+.collection-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin-top: auto;
+}
+
+.collection-actions .button {
+    display: inline-block;
+    padding: 10px 16px;
+    background-color: white;
+    color: #0058a0;
+    border: 2px solid #0058a0;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.collection-actions .button:hover {
+    background-color: #0058a0;
+    color: white;
+}
+
+.collection-actions .button:focus-visible {
+    outline: 3px solid #005fcc;
+    outline-offset: 3px;
 }
 
 .remove-set-btn{
