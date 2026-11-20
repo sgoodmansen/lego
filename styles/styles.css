@@ -196,6 +196,17 @@ a:hover {
     }
 }
 
+/* SHARED BUTTON STYLES */
+.search-suggestions button,
+#pagination button {
+    background-color: #0058a0;
+    color: white;
+    border: 2px solid #0058a0;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
 /* SEARCH SETS */
 .search {
     display: flex;
@@ -321,12 +332,6 @@ a:hover {
 
 .search-suggestions button {
     padding: 0.65rem 1rem;
-    background-color: #0058a0;
-    color: white;
-    border: 2px solid #0058a0;
-    border-radius: 6px;
-    font-size: 1rem;
-    cursor: pointer;
 }
 
 .search-suggestions button:hover {
@@ -451,12 +456,6 @@ a:hover {
 
 #pagination button {
     padding: 10px 16px;
-    background-color: #0058a0;
-    color: white;
-    border: 2px solid #0058a0;
-    border-radius: 6px;
-    font-size: 1rem;
-    cursor: pointer;
 }
 
 #pagination button:disabled {
