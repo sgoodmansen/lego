@@ -213,6 +213,12 @@ a:hover {
     border-color: #003f73;
 }
 
+.search-suggestions button:focus-visible,
+#pagination button:focus-visible {
+    outline: 3px solid #005fcc;
+    outline-offset: 3px;
+}
+
 /* SEARCH SETS */
 .search {
     display: flex;
@@ -340,11 +346,6 @@ a:hover {
     padding: 0.65rem 1rem;
 }
 
-.search-suggestions button:focus-visible {
-    outline: 3px solid #005fcc;
-    outline-offset: 3px;
-}
-
 /* SHARED CARD STYLES */
 .set-info h2,
 .collection-card h3 {
@@ -464,11 +465,6 @@ a:hover {
     color: #777;
     border-color: #ccc;
     cursor: not-allowed;
-}
-
-#pagination button:focus-visible {
-    outline: 3px solid #005fcc;
-    outline-offset: 3px;
 }
 
 /* LEGO Set Details */
