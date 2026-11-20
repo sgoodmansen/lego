@@ -198,7 +198,9 @@ a:hover {
 
 /* SHARED BUTTON STYLES */
 .search-suggestions button,
-#pagination button {
+#pagination button,
+#add-set-btn,
+.add-to-collection-btn {
     background-color: #0058a0;
     color: white;
     border: 2px solid #0058a0;
@@ -407,12 +409,6 @@ a:hover {
 
 .add-to-collection-btn {
     padding: 10px 16px;
-    background-color: #0058a0;
-    color: white;
-    border: 2px solid #0058a0;
-    border-radius: 6px;
-    font-size: 1rem;
-    cursor: pointer;
     transition: background-color 0.2s ease;
     margin-top: auto;
 }
@@ -551,12 +547,6 @@ a:hover {
 
 #add-set-btn {
     padding: 10px 16px;
-    background-color: #0058a0;
-    color: white;
-    border: 2px solid #0058a0;
-    border-radius: 6px;
-    font-size: 1rem;
-    cursor: pointer;
 }
 
 #add-set-btn:hover {
