@@ -210,8 +210,15 @@ a:hover {
 }
 
 .search-suggestions button:hover,
-#pagination button:not(:disabled):hover {
+#pagination button:not(:disabled):hover,
+#add-set-btn:hover,
+.add-to-collection-btn:hover:not(:disabled) {
     background-color: #003f73;
+}
+
+.search-suggestions button:hover,
+#pagination button:not(:disabled):hover,
+#add-set-btn:hover {
     border-color: #003f73;
 }
 
@@ -413,10 +420,6 @@ a:hover {
     margin-top: auto;
 }
 
-.add-to-collection-btn:hover:not(:disabled) {
-    background-color: #003f73;
-}
-
 .add-to-collection-btn:focus-visible {
     outline: 3px solid #005fcc;
     outline-offset: 3px;
@@ -547,11 +550,6 @@ a:hover {
 
 #add-set-btn {
     padding: 10px 16px;
-}
-
-#add-set-btn:hover {
-    background-color: #003f73;
-    border-color: #003f73;
 }
 
 #add-set-btn:focus-visible {
