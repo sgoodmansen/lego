@@ -223,7 +223,9 @@ a:hover {
 }
 
 .search-suggestions button:focus-visible,
-#pagination button:focus-visible {
+#pagination button:focus-visible,
+#add-set-btn:focus-visible,
+.add-to-collection-btn:focus-visible {
     outline: 3px solid #005fcc;
     outline-offset: 3px;
 }
@@ -420,11 +422,6 @@ a:hover {
     margin-top: auto;
 }
 
-.add-to-collection-btn:focus-visible {
-    outline: 3px solid #005fcc;
-    outline-offset: 3px;
-}
-
 @media (prefers-reduced-motion: reduce) {
     .set-card {
         transition: none;
@@ -550,11 +547,6 @@ a:hover {
 
 #add-set-btn {
     padding: 10px 16px;
-}
-
-#add-set-btn:focus-visible {
-    outline: 3px solid #005fcc;
-    outline-offset: 3px;
 }
 
 #add-set-form label {
